@@ -24,86 +24,90 @@
 6. **XHTML 1.0 Frameset**:允许使用表现性、废弃元素以及frameset，文档必须是结构良好的XML文档。声明：``<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">``
 7. **HTML 5**: ``<!doctype html>``
 
-
-
-- **HTML全局属性(global attribute)有哪些**  
+### HTML全局属性(global attribute)有哪些  
 参考资料：[MDN: html global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) 
 
-- **什么是web语义化，有什么好处**  
+### 什么是web语义化，有什么好处
 web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。  
 HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构  
 css命名的语义化是指：为html标签添加有意义的class，id补充未表达的语义，如[Microformat](http://en.wikipedia.org/wiki/Microformats)通过添加符合规则的class描述信息  
 为什么需要语义化：
-    - 去掉样式后页面呈现清晰的结构
-    - 盲人使用读屏器更好地阅读
-    - 搜索引擎更好地理解页面，有利于收录
-    - 便团队项目的可持续运作及维护  
 
-<br />
+- 去掉样式后页面呈现清晰的结构
+- 盲人使用读屏器更好地阅读
+- 搜索引擎更好地理解页面，有利于收录
+- 便团队项目的可持续运作及维护  
 
-- **HTTP method**  
-1.一台服务器要与HTTP1.1兼容，只要为资源实现**GET**和**HEAD**方法即可  
-2.**GET**是最常用的方法，通常用于**请求服务器发送某个资源**。
-3.**HEAD**与GET类似，但**服务器在响应中值返回首部，不返回实体的主体部分**。
-4.**PUT**让服务器**用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，如果那个URL已经存在的话，就用干这个主体替代它**  
-4.**POST**起初是用来向服务器输入数据的。实际上，通常会用它来支持HTML的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方。  
-5.**TRACE**会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个TRACE响应并在响应主体中携带它收到的原始请求报文。TRACE方法主要用于诊断，用于验证请求是否如愿穿过了请求/响应链。  
-6**OPTIONS**方法请求web服务器告知其支持的各种功能。可以查询服务器支持哪些方法或者对某些特殊资源支持哪些方法。  
-7.**DELETE**请求服务器删除请求URL指定的资源
+### HTTP method
+1. 一台服务器要与HTTP1.1兼容，只要为资源实现**GET**和**HEAD**方法即可
+2. **GET**是最常用的方法，通常用于**请求服务器发送某个资源**。
+3. **HEAD**与GET类似，但**服务器在响应中值返回首部，不返回实体的主体部分**
+4. **PUT**让服务器**用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，如果那个URL已经存在的话，就用干这个主体替代它**  
+5. **POST**起初是用来向服务器输入数据的。实际上，通常会用它来支持HTML的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方。
+6. **TRACE**会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个TRACE响应并在响应主体中携带它收到的原始请求报文。TRACE方法主要用于诊断，用于验证请求是否如愿穿过了请求/响应链。  
+7. **OPTIONS**方法请求web服务器告知其支持的各种功能。可以查询服务器支持哪些方法或者对某些特殊资源支持哪些方法。  
+8. **DELETE**请求服务器删除请求URL指定的资源
 
-<br />
+### 从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)
+1. 在浏览器地址栏输入URL
+2. 浏览器查看**缓存**，如果请求资源在缓存中并且新鲜，跳转到转码步骤
+3. 浏览器**解析URL**获取协议，主机，端口，path
+4. 浏览器**组装一个HTTP（GET）请求报文**
+5. 浏览器**获取主机ip地址**，过程如下：
+    1. 浏览器缓存
+    2. 本机缓存
+    3. hosts文件
+    4. 路由器缓存
+    5. ISP DNS缓存
+    6. DNS递归查询（可能存在负载均衡导致每次IP不一样）
+6. **打开一个socket与目标IP地址，端口建立TCP链接**，三次握手如下：
+    1. 客户端发送一个TCP的**SYN=1，Seq=X**的包到服务器端口
+    2. 服务器发回**SYN=1， ACK=X+1， Seq=Y**的响应包
+    3. 客户端发送**ACK=Y+1， Seq=Z**
+7. TCP链接建立后**发送HTTP请求**
+8. 服务器接受请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序
+9. 服务器检查**HTTP请求头是否包含缓存验证信息**如果验证缓存新鲜，返回**304**等对应状态吗
+10. 处理程序读取完整请求并准备HTTP响应，可能需要查询数据库等操作
+11. 服务器将**响应报文通过TCP连接发送回浏览器**
+12. 浏览器接收HTTP响应，然后根据情况选择**关闭TCP连接或者保留重用，关闭TCP连接的四次握手如下**：
+    1. 主动方发送**Fin=1， Ack=Z， Seq= X**报文
+    2. 被动方发送**ACK=X+1， Seq=Z**报文
+    3. 被动方发送**Fin=1， ACK=X， Seq=Y**报文
+    4. 主动方发送**ACK=Y， Seq=X**报文
+13. 浏览器检查响应状态吗：是否为1XX，3XX， 4XX， 5XX，这些情况处理与2XX不同
+14. 如果资源可缓存，**进行缓存**
+15. 对响应进行**解码**（例如gzip压缩）
+16. 根据资源类型决定如何处理（假设资源为HTML文档）
+17. **解析HTML文档，构件DOM树，下载资源，构造CSSOM树，执行js脚本**，这些操作没有严格的先后顺序，以下分别解释
+18. **构建DOM树**：
+    1. **Tokenizing**：根据HTML规范将字符流解析为标记
+    2. **Lexing**：词法分析将标记转换为对象并定义属性和规则
+    3. **DOM construction**：根据HTML标记关系将对象组成DOM树
+19. 解析过程中遇到图片、样式表、js文件，**启动下载**
+20. 构建**CSSOM树**：
+    1. **Tokenizing**：字符流转换为标记流
+    2. **Node**：根据标记创建节点
+    3. **CSSOM**：节点创建CSSOM树
+21. **[根据DOM树和CSSOM树构建渲染树](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction)**:
+    1. 从DOM树的根节点遍历所有**可见节点**，不可见节点包括：1）``script``,``meta``这样本身不可见的标签。2)被css隐藏的节点，如``display: none``
+    2. 对每一个可见节点，找到恰当的CSSOM规则并应用
+    3. 发布可是节点的内容和计算样式
+22. **js解析如下**：
+    1. 浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时**document.readystate为loading**
+    2. HTML解析器遇到**没有async和defer的script时**，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。**同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容**
+    3. 当解析器遇到设置了**async**属性的script时，开始下载脚本并继续解析文档。脚本会在它**下载完成后尽快执行**，但是**解析器不会停下来等它下载**。异步脚本**禁止使用document.write()**，它们可以访问自己script和之前的文档元素
+    4. 当文档完成解析，document.readState变成interactive
+    5. 所有**difer**脚本会**按照在文档出现的顺序执行**，延迟脚本**能访问完整文档树**，禁止使用document.write()
+    6. 浏览器**在Document对象上触发DOMContentLoaded事件**
+    7. 此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些**内容完成载入并且所有异步脚本完成载入和执行**，document.readState变为complete,window触发load事件
+23. **显示页面**（HTML解析过程中会逐步显示页面）
 
-- **从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)**
-    1. 在浏览器地址栏**输入URL**
-    2. 浏览器查看**缓存**，如果请求资源在缓存中并且新鲜，转到解码步骤
-    2. 浏览器**解析URL**获取协议，主机，端口，path
-    3. 浏览器**组装一个HTTP请求报文**
-    4. 浏览器**获取主机对应的ip地址**，过程如下：
-        1. 浏览器缓存
-        2. 本机缓存
-        3. hosts文件
-        4. 路由器缓存
-        5. ISP DNS缓存
-        3. DNS递归查询
-    5. 浏览器**打开一个socket与目标IP地址，端口建立TCP链接**
-    6. 建立TCP连接后，浏览器**发送HTTP请求**
-    7. 目的主机**将请求转发到服务器软件（如Apache）**
-    8. 服务器**解析请求并启动程序执行操作**
-    9. 请求处理程序获取完整的请求并开始准备HTTP响应，可能需要查询数据库等操作
-    10. 服务器将**组成响应报文并通过TCP连接向浏览器发送响应**
-    11. 浏览器接收HTTP响应，然后根据情况选择**关闭TCP链接或者保留重用**
-    11. 浏览器检查响应头：是否为信息（1xx）、重定向（3xx）、错误（4xx，5xx），这些情况与正常的2xx响应处理不同
-    11. 如果资源可缓存，进行缓存
-    11. 浏览器对响应进行解码（例如gzip压缩）
-    12. 浏览器根据资源类型决定如何处理（假设资源为HTML文档）
-    11. 浏览器**接受响应并解析HTML文档，构建DOM树**
-        1. 根据文件编码将字节流转换为字符
-        2. **Tokenizing**：根据HTML规范将字符解析为标记
-        3. **Lexing**：此法分析将标记转换为对象并且定义属性和规则
-        4. **DOM construction**：根据HTML标记关系将对象组成DOM树
-    12. **解析过程中遇到图片，样式表，js文件，启动下载**
-    13. 构建**CSSOM树**
-        1. 字节流转换为字符流
-        2. **Tokenizing**：字符流转换为标记流
-        3. **Node**：根据标记创建节点
-        4. **CSSOM**：节点创建CSSOM树
-    13. **[根据DOM树和CSSOM树构建渲染树](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction)**
-        1. 从DOM树的根节点遍历所有**可见节点**
-            - 一些节点本身就是不可见的，如``script``，``meta``这样的标签产生的节点由于不会产生可视结果，所以会被忽略
-            - 一些节点被CSS隐藏也会被忽略如``display: none;``
-        2. 对每一个可见节点，找到恰当的CSSOM规则并应用规则
-        3. 发布可视节点的内容和计算样式
-    14. **执行脚本**
-    14. **显示页面**
-
-
-
-- **HTTP request报文结构是怎样的**  
+### HTTP request报文结构是怎样的
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)中进行了定义：  
-1.首行是**Request-Line**包括：**请求方法**，**请求URI**，**协议版本**，**CRLF**  
-2.首行之后是若干行**请求头**，包括**general-header**，**request-header**或者**entity-header**，每个一行以CRLF结束  
-3.请求头和消息实体之间有一个**CRLF分隔**  
-4.根据实际请求需要可能包含一个**消息实体**  
+1. 首行是**Request-Line**包括：**请求方法**，**请求URI**，**协议版本**，**CRLF**  
+2. 首行之后是若干行**请求头**，包括**general-header**，**request-header**或者**entity-header**，每个一行以CRLF结束  
+3. 请求头和消息实体之间有一个**CRLF分隔**  
+4. 根据实际请求需要可能包含一个**消息实体**  
 一个请求报文例子如下：
 
 <pre>
@@ -123,14 +127,12 @@ If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
 name=qiu&age=25
 </pre>
 
-<br />
-
-- **HTTP response报文结构是怎样的**  
+### HTTP response报文结构是怎样的
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：  
-1.首行是**状态行**包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF  
-2.首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**  
-3.响应头部和响应实体之间用**一个CRLF空行**分隔  
-4.最后是一个可能的**消息实体**  
+1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF  
+2. 首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**  
+3. 响应头部和响应实体之间用**一个CRLF空行**分隔  
+4. 最后是一个可能的**消息实体**  
 响应报文例子如下：  
 
 <pre>
@@ -149,118 +151,113 @@ Content-Type: text/html; charset=iso-8859-1
 {"name": "qiu", "age": 25}
 </pre>
 
-<br />
+### 如何进行网站性能优化
+[雅虎Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html)：  
 
-- **如何进行网站性能优化**  
-[雅虎Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html)
-    - content方面
-        1. 减少HTTP请求：合并文件、CSS精灵、inline Image
-        2. 减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询
-        3. 避免重定向：多余的中间访问
-        4. 使Ajax可缓存
-        5. 非必须组件延迟加载
-        6. 未来所需组件预加载
-        7. 减少DOM元素数量
-        8. 将资源放到不同的域下：浏览器同时从一个域下载资源的数目有限，增加域可以提高并行下载量
-        9. 减少iframe数量
-        10. 不要404
-    - Server方面
-        1. 使用CDN
-        2. 添加Expires或者Cache-Control响应头
-        3. 对组件使用Gzip压缩
-        4. 配置ETag
-        5. Flush Buffer Early
-        6. Ajax使用GET进行请求
-        7. 避免空src的img标签
-    - Cookie方面
-        1. 减小cookie大小
-        2. 引入资源的域名不要包含cookie
-    - css方面
-        1. 将样式表放到页面顶部
-        2. 不使用CSS表达式
-        3. 使用<link>不使用@import
-        4. 不使用IE的Filter
-    - Javascript方面
-        1. 将脚本放到页面底部
-        2. 将javascript和css从外部引入
-        3. 压缩javascript和css
-        4. 删除不需要的脚本
-        5. 减少DOM访问
-        6. 合理设计事件监听器
-    - 图片方面
-        1. 优化图片：根据实际颜色需要选择色深、压缩
-        2. 优化css精灵
-        3. 不要在HTML中拉伸图片
-        4. 保证favicon.ico小并且可缓存
-    - 移动方面
-        1. 保证组件小于25k
-        2. Pack Components into a Multipart Document
+- content方面  
+    1. 减少HTTP请求：合并文件、CSS精灵、inline Image  
+    2. 减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询  
+    3. 避免重定向：多余的中间访问
+    4. 使Ajax可缓存
+    5. 非必须组件延迟加载  
+    6. 未来所需组件预加载  
+    7. 减少DOM元素数量  
+    8. 将资源放到不同的域下：浏览器同时从一个域下载资源的数目有限，增加域可以提高并行下载量  
+    9. 减少iframe数量  
+    10. 不要404
 
+- Server方面
+    1. 使用CDN
+    2. 添加Expires或者Cache-Control响应头
+    3. 对组件使用Gzip压缩
+    4. 配置ETag
+    5. Flush Buffer Early
+    6. Ajax使用GET进行请求
+    7. 避免空src的img标签
+- Cookie方面
+    1. 减小cookie大小
+    2. 引入资源的域名不要包含cookie
+- css方面
+    1. 将样式表放到页面顶部
+    2. 不使用CSS表达式
+    3. 使用<link>不使用@import
+    4. 不使用IE的Filter
+- Javascript方面
+    1. 将脚本放到页面底部
+    2. 将javascript和css从外部引入
+    3. 压缩javascript和css
+    4. 删除不需要的脚本
+    5. 减少DOM访问
+    6. 合理设计事件监听器
+- 图片方面
+    1. 优化图片：根据实际颜色需要选择色深、压缩
+    2. 优化css精灵
+    3. 不要在HTML中拉伸图片
+    4. 保证favicon.ico小并且可缓存
+- 移动方面
+    1. 保证组件小于25k
+    2. Pack Components into a Multipart Document
 
-
-- **什么是渐进增强**  
+### 什么是渐进增强  
 渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:  
 
-    - 所有浏览器都必须能访问基本内容
-    - 所有浏览器都必须能使用基本功能
-    - 所有内容都包含在语义化标签中
-    - 通过外部CSS提供增强的布局
-    - 通过非侵入式、外部javascript提供增强功能
-    - end-user web browser preferences are respected
+- 所有浏览器都必须能访问基本内容
+- 所有浏览器都必须能使用基本功能
+- 所有内容都包含在语义化标签中
+- 通过外部CSS提供增强的布局
+- 通过非侵入式、外部javascript提供增强功能
+- end-user web browser preferences are respected
 
-
-- **HTTP状态码及其含义**  
+### HTTP状态码及其含义  
 参考[RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
-    - 1XX：信息状态码
-        - **100 Continue**：客户端应当继续发送请求。这个临时相应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求万仇向客户端发送一个最终响应
-        - **101 Switching Protocols**：服务器已经理解力客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。在发送完这个响应最后的空行后，服务器将会切换到Upgrade消息头中定义的那些协议。
-    - 2XX：成功状态码
-        - **200 OK**：请求成功，请求所希望的响应头或数据体将随此响应返回
-        - **201 Created**：
-        - **202 Accepted**：
-        - **203 Non-Authoritative Information**：
-        - **204 No Content**：
-        - **205 Reset Content**：
-        - **206 Partial Content**：
-    - 3XX：重定向
-        - **300 Multiple Choices**：
-        - **301 Moved Permanently**：
-        - **302 Found**：
-        - **303 See Other**：
-        - **304 Not Modified**：
-        - **305 Use Proxy**：
-        - **306 （unused）**：
-        - **307 Temporary Redirect**：
-    - 4XX：客户端错误
-        - **400 Bad Request**:
-        - **401 Unauthorized**:
-        - **402 Payment Required**:
-        - **403 Forbidden**:
-        - **404 Not Found**:
-        - **405 Method Not Allowed**:
-        - **406 Not Acceptable**:
-        - **407 Proxy Authentication Required**:
-        - **408 Request Timeout**:
-        - **409 Conflict**:
-        - **410 Gone**:
-        - **411 Length Required**:
-        - **412 Precondition Failed**:
-        - **413 Request Entity Too Large**:
-        - **414 Request-URI Too Long**:
-        - **415 Unsupported Media Type**:
-        - **416 Requested Range Not Satisfiable**:
-        - **417 Expectation Failed**:
-    - 5XX: 服务器错误
-        - **500 Internal Server Error**:
-        - **501 Not Implemented**:
-        - **502 Bad Gateway**:
-        - **503 Service Unavailable**:
-        - **504 Gateway Timeout**:
-        - **505 HTTP Version Not Supported**:
 
+- 1XX：信息状态码
+    - **100 Continue**：客户端应当继续发送请求。这个临时相应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求万仇向客户端发送一个最终响应
+    - **101 Switching Protocols**：服务器已经理解力客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。在发送完这个响应最后的空行后，服务器将会切换到Upgrade消息头中定义的那些协议。
+- 2XX：成功状态码
+    - **200 OK**：请求成功，请求所希望的响应头或数据体将随此响应返回
+    - **201 Created**：
+    - **202 Accepted**：
+    - **203 Non-Authoritative Information**：
+    - **204 No Content**：
+    - **205 Reset Content**：
+    - **206 Partial Content**：
+- 3XX：重定向
+    - **300 Multiple Choices**：
+    - **301 Moved Permanently**：
+    - **302 Found**：
+    - **303 See Other**：
+    - **304 Not Modified**：
+    - **305 Use Proxy**：
+    - **306 （unused）**：
+    - **307 Temporary Redirect**：
+- 4XX：客户端错误
+    - **400 Bad Request**:
+    - **401 Unauthorized**:
+    - **402 Payment Required**:
+    - **403 Forbidden**:
+    - **404 Not Found**:
+    - **405 Method Not Allowed**:
+    - **406 Not Acceptable**:
+    - **407 Proxy Authentication Required**:
+    - **408 Request Timeout**:
+    - **409 Conflict**:
+    - **410 Gone**:
+    - **411 Length Required**:
+    - **412 Precondition Failed**:
+    - **413 Request Entity Too Large**:
+    - **414 Request-URI Too Long**:
+    - **415 Unsupported Media Type**:
+    - **416 Requested Range Not Satisfiable**:
+    - **417 Expectation Failed**:
+- 5XX: 服务器错误
+    - **500 Internal Server Error**:
+    - **501 Not Implemented**:
+    - **502 Bad Gateway**:
+    - **503 Service Unavailable**:
+    - **504 Gateway Timeout**:
+    - **505 HTTP Version Not Supported**:
 
-
-<br />
 ## $CSS部分
 
 ### ``link``与``@import``的区别
@@ -270,7 +267,6 @@ Content-Type: text/html; charset=iso-8859-1
 5. 浏览器对``link``支持早于``@import``，可以使用``@import``对老浏览器隐藏样式
 6. ``@import``必须在样式规则之前，可以在css文件中引用其他文件
 6. 总体来说：**[link优于@import](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/)**  
-
 
 ### ``display: block;``和``display: inline;``的区别
 ``block``元素特点：  
@@ -289,9 +285,7 @@ Content-Type: text/html; charset=iso-8859-1
 6.浮动或绝对定位时会转换为``block``  
 7.``vertical-align``属性生效  
 
-<br />
-
-- **PNG, GIF, JPG的区别及如何选择**  
+### PNG, GIF, JPG的区别及如何选  
 参考资料： [选择正确的图片格式](http://www.yuiblog.com/blog/2008/11/04/imageopt-2/)  
 **GIF**:  
 1.8位像素，256色  
@@ -310,50 +304,36 @@ Content-Type: text/html; charset=iso-8859-1
 2.PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画  
 3.适合图标、背景、按钮  
 
-<br />
+### CSS有哪些继承属性
+- 关于文字排版的属性如：`font`, `word-break`, `letter-spacing`,`text-align`,`tex--rendering`,`word-spacing`,`white-spacing`,`text-indent`,`text-transform`,`text-shadow`
+- `line-height`
+- `color`
 
-- **CSS有哪些继承属性**
-    - 关于文字排版的属性如：`font`, `word-break`, `letter-spacing`,`text-align`,`tex--rendering`,`word-spacing`,`white-spacing`,`text-indent`,`text-transform`,`text-shadow`
-    - `line-height`
-    - `color`
-
-<br />
-
-- **IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决**
-
-1.IE5-8不支持``opacity``，解决办法：
-
+### IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
+- IE5-8不支持``opacity``，解决办法：
 <pre>
 .opacity {
     filter: alpha(opacity=50); /* for IE5-7 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* for IE 8*/
 }
 </pre>
-  
-2.IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
-
-3.IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
-
-4.IE6-7不支持``display: inline-block``解决办法：设置inline并触发hasLayout
-
+- IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
+- IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
+- IE6-7不支持``display: inline-block``解决办法：设置inline并触发hasLayout
 <pre>
     display: inline-block;
     *display: inline;
     *zoom: 1;
 </pre>
-
-5.IE6下浮动元素在浮动方向上的外边距会加倍。解决办法：  
+- IE6下浮动元素在浮动方向上的外边距会加倍。解决办法：  
 1）使用padding控制间距。  
 2）浮动元素``display: inline;``这样解决问题且无任何副作用：css标准规定浮动元素display:inline会自动调整为block
+- 通过为块级元素设置宽度和左右margin为auto时，IE6不能实现水平居中，解决方法：为父元素设置``text-align: center;``
 
-
-<br />
-
-- **容器包含若干浮动元素时如何清理浮动**  
-1.容器元素闭合标签前添加额外元素并设置``clear: both``  
-2.父元素触发块级格式化上下文(见块级可视化上下文部分)  
-3.设置容器元素伪元素进行清理[推荐的清理浮动方法](http://nicolasgallagher.com/micro-clearfix-hack/)  
-
+### 容器包含若干浮动元素时如何清理(包含)浮动 
+1. 容器元素闭合标签前添加额外元素并设置``clear: both``
+2. 父元素触发块级格式化上下文(见块级可视化上下文部分)
+3. 设置容器元素伪元素进行清理[推荐的清理浮动方法](http://nicolasgallagher.com/micro-clearfix-hack/)  
 <pre>
 /**
 * 在标准浏览器下使用
@@ -382,81 +362,62 @@ Content-Type: text/html; charset=iso-8859-1
     *zoom: 1;
 }
 </pre>
-
-
-- **什么是FOUC？如何避免？**  
+### 什么是FOUC？如何避免？  
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。**解决方法**：把样式表放到文档的`head` 
 
-<br />
-
-- **如何创建块级格式化上下文（block formatting context）？有什么用**  
+### 如何创建块级格式化上下文（block formatting context）？有什么用
 创建规则：  
-1.根元素  
-2.浮动元素（``float``不是``none``）  
-3.绝对定位元素（``position``取值为``absolute``或``fixed``）  
-4.``display``取值为``inline-block``,``table-cell``, ``table-caption``,``flex``, ``inline-flex``之一的元素  
-5.``overflow``不是``visible``的元素  
+1. 根元素  
+2. 浮动元素（``float``不是``none``）  
+3. 绝对定位元素（``position``取值为``absolute``或``fixed``）  
+4. ``display``取值为``inline-block``,``table-cell``, ``table-caption``,``flex``, ``inline-flex``之一的元素  
+5. ``overflow``不是``visible``的元素  
 作用：  
-1.可以包含浮动元素  
-2.不被浮动元素覆盖  
-3.阻止父子元素的margin折叠
+1. 可以包含浮动元素
+2. 不被浮动元素覆盖  
+3. 阻止父子元素的margin折叠
 
-<br />
- 
-
-- **display, float, position的关系**  
-1.如果``display``为none，那么position和float都不起作用，这种情况下元素不产生框  
-2.否则，如果position值为absolute或者fixed，框就是绝对定位的，float的计算值为none，display根据下面的表格进行调整。  
-3.否则，如果float不是none，框是浮动的，display根据下表进行调整  
-4.否则，如果元素是根元素，display根据下表进行调整  
-5.其他情况下display的值为指定值  
+### display, float, position的关系
+1. 如果``display``为none，那么position和float都不起作用，这种情况下元素不产生框
+2. 否则，如果position值为absolute或者fixed，框就是绝对定位的，float的计算值为none，display根据下面的表格进行调整。
+3. 否则，如果float不是none，框是浮动的，display根据下表进行调整
+4. 否则，如果元素是根元素，display根据下表进行调整
+5. 其他情况下display的值为指定值  
 总结起来：**绝对定位、浮动、根元素都需要调整``display``**
-
 ![display转换规则](img/display-adjust.png)
 
-
-<br />
-
-- **外边距折叠（collapsing margins）**  
+### 外边距折叠（collapsing margins)  
 毗邻的两个或多个``margin``会合并成一个margin，叫做外边距折叠。规则如下：  
-1.两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠  
-2.浮动元素/inline-block元素/绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠  
-3.创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠  
-4.元素自身的margin-bottom和margin-top相邻时也会折叠
+1. 两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠  
+2. 浮动元素/inline-block元素/绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠
+3. 创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
+4. 元素自身的margin-bottom和margin-top相邻时也会折叠
 
+### 如何确定一个元素的包含块（containing block)
+1. 根元素的包含块叫做初始包含块，在连续媒体中他的尺寸与viewport相同并且anchored at the canvas origin；对于paged media，它的尺寸等于page area。初始包含块的direction属性与根元素相同。
+2. ``position``为``relative``或者``static``的元素，它的包含块由最近的块级（``display``为``block``,``list-item``, ``table``）祖先元素的**内容框**组成
+3. 如果元素``position``为``fixed``。对于连续媒体，它的包含块为viewport；对于paged media，包含块为page area
+4. 如果元素``position``为``absolute``，它的包含块由祖先元素中最近一个``position``为``relative``,``absolute``或者``fixed``的元素产生，规则如下：
+    - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
+    - 其他情况下包含块由祖先节点的**padding edge**组成  
 
-<br />
-
-- **如何确定一个元素的包含块（containing block）**
-    - 根元素的包含块叫做初始包含块，在连续媒体中他的尺寸与viewport相同并且anchored at the canvas origin；对于paged media，它的尺寸等于page area。初始包含块的direction属性与根元素相同。
-    - <code>position</code>为``relative``或者``static``的元素，它的包含块由最近的块级（``display``为``block``,``list-item``, ``table``）祖先元素的**内容框**组成
-    - 如果元素``position``为``fixed``。对于连续媒体，它的包含块为viewport；对于paged media，包含块为page area
-    - 如果元素``position``为``absolute``，它的包含块由祖先元素中最近一个``position``为``relative``,``absolute``或者``fixed``的元素产生，规则如下：
-        - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
-        - 其他情况下包含块由祖先节点的**padding edge**组成  
-
-<br /><br /><br /><br />
-
-- **stacking context，布局规则**  
+### stacking context，布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
-1.根元素的边界和背景  
-2.常规流中的元素按照html中顺序  
-3.浮动块  
-4.positioned元素按照html中出现顺序  
+1. 根元素的边界和背景  
+2. 常规流中的元素按照html中顺序  
+3. 浮动块  
+4. positioned元素按照html中出现顺序  
 如何创建stacking context：  
-1.根元素  
-2.z-index不为auto的定位元素  
-3.a flex item with a z-index value other than 'auto'  
-4.opacity小于1的元素  
-5.在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
+1. 根元素  
+2. z-index不为auto的定位元素  
+3. a flex item with a z-index value other than 'auto'  
+4. opacity小于1的元素  
+5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
-
-
-
-- **如何竖直居中一个元素**  
+### 如何竖直居中一个元素  
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
-    - 元素高度声明的情况下在父容器中居中：**绝对居中法**
 
+- 元素高度声明的情况下在父容器中居中：**绝对居中法**
 <pre>
 &lt;div class="parent">
     &lt;div class="absolute-center">&lt;/div>
@@ -477,23 +438,17 @@ z轴上的默认层叠顺序如下（从下到上）：
     width: 70%;
 }
 </pre>
-
-优点：
-
-1. 跨浏览器，包括IE8-10
-2. 无需其他特色标记，CSS代码量少
-3. 完美支持图片居中
+优点：  
+1. 跨浏览器，包括IE8-10  
+2. 无需其他特色标记，CSS代码量少  
+3. 完美支持图片居中  
 4. 宽度高度可变，可用百分比
 
-缺点
-
-1. 必须声明高度
+缺点  
+1. 必须声明高度  
 2. windows Phone设备上不起作用
 
-
-
-    - **负外边距**：当元素宽度高度固定时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
-
+- **负外边距**：当元素宽度高度固定时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
 <pre>
 &lt;div class="parent">
     &lt;div class="negative-margin-center">&lt;/div>
