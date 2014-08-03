@@ -311,20 +311,24 @@ Content-Type: text/html; charset=iso-8859-1
 
 ### IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
 - IE5-8不支持``opacity``，解决办法：
+
 <pre>
 .opacity {
     filter: alpha(opacity=50); /* for IE5-7 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* for IE 8*/
 }
 </pre>
+
 - IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
 - IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
 - IE6-7不支持``display: inline-block``解决办法：设置inline并触发hasLayout
+
 <pre>
     display: inline-block;
     *display: inline;
     *zoom: 1;
 </pre>
+
 - IE6下浮动元素在浮动方向上的外边距会加倍。解决办法：  
 1）使用padding控制间距。  
 2）浮动元素``display: inline;``这样解决问题且无任何副作用：css标准规定浮动元素display:inline会自动调整为block
@@ -334,6 +338,7 @@ Content-Type: text/html; charset=iso-8859-1
 1. 容器元素闭合标签前添加额外元素并设置``clear: both``
 2. 父元素触发块级格式化上下文(见块级可视化上下文部分)
 3. 设置容器元素伪元素进行清理[推荐的清理浮动方法](http://nicolasgallagher.com/micro-clearfix-hack/)  
+
 <pre>
 /**
 * 在标准浏览器下使用
@@ -362,6 +367,7 @@ Content-Type: text/html; charset=iso-8859-1
     *zoom: 1;
 }
 </pre>
+
 ### 什么是FOUC？如何避免？  
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。**解决方法**：把样式表放到文档的`head` 
 
@@ -418,6 +424,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
 
 - 元素高度声明的情况下在父容器中居中：**绝对居中法**
+
 <pre>
 &lt;div class="parent">
     &lt;div class="absolute-center">&lt;/div>
@@ -438,6 +445,7 @@ z轴上的默认层叠顺序如下（从下到上）：
     width: 70%;
 }
 </pre>
+
 优点：  
 1. 跨浏览器，包括IE8-10  
 2. 无需其他特色标记，CSS代码量少  
@@ -449,6 +457,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 2. windows Phone设备上不起作用
 
 - **负外边距**：当元素宽度高度固定时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
+
 <pre>
 &lt;div class="parent">
     &lt;div class="negative-margin-center">&lt;/div>
