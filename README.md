@@ -16,6 +16,7 @@
 4. HTML5不基于SGML，所以不用指定DTD
 
 常见dotype：  
+
 1. **HTML4.01 strict**：不允许使用表现性、废弃元素（如font）以及frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">``
 2. **HTML4.01 Transitional**:允许使用表现性、废弃元素（如font），不允许使用frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">``
 3. **HTML4.01 Frameset**:允许表现性元素，废气元素以及frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">``
