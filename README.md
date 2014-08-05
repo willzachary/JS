@@ -1,14 +1,17 @@
 # FE-interview
 
 个人收集的前端知识点、面试题和答案，参考答案仅代表个人观点，方便复习，目录如下，通过文档内搜索目录可快速定位章节  
+
 1. $HTML, HTTP, web综合问题  
 2. $CSS部分  
 3. $javascript部分  
 
 
+
 ## $HTML， HTTP，web综合问题
 
 ### doctype是什么，举例常见doctype及特点
+
 1. ``<!doctype>``声明必须处于HTML文档的头部，在``<html>``标签之前，HTML5中不区分大小写
 2. ``<!doctype>``声明不是一个HTML标签，是一个用于告诉浏览器当前HTMl版本的指令
 3. 现代浏览器的html布局引擎通过检查doctype决定使用兼容模式还是标准模式对文档进行渲染，一些浏览器有一个接近标准模型。
@@ -40,6 +43,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 - 便团队项目的可持续运作及维护  
 
 ### HTTP method
+
 1. 一台服务器要与HTTP1.1兼容，只要为资源实现**GET**和**HEAD**方法即可
 2. **GET**是最常用的方法，通常用于**请求服务器发送某个资源**。
 3. **HEAD**与GET类似，但**服务器在响应中值返回首部，不返回实体的主体部分**
@@ -50,6 +54,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 8. **DELETE**请求服务器删除请求URL指定的资源
 
 ### 从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)
+
 1. 在浏览器地址栏输入URL
 2. 浏览器查看**缓存**，如果请求资源在缓存中并且新鲜，跳转到转码步骤
 3. 浏览器**解析URL**获取协议，主机，端口，path
@@ -104,7 +109,9 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 23. **显示页面**（HTML解析过程中会逐步显示页面）
 
 ### HTTP request报文结构是怎样的
+
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)中进行了定义：  
+
 1. 首行是**Request-Line**包括：**请求方法**，**请求URI**，**协议版本**，**CRLF**  
 2. 首行之后是若干行**请求头**，包括**general-header**，**request-header**或者**entity-header**，每个一行以CRLF结束  
 3. 请求头和消息实体之间有一个**CRLF分隔**  
@@ -129,7 +136,9 @@ name=qiu&age=25
 </pre>
 
 ### HTTP response报文结构是怎样的
+
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：  
+
 1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF  
 2. 首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**  
 3. 响应头部和响应实体之间用**一个CRLF空行**分隔  
@@ -199,7 +208,10 @@ Content-Type: text/html; charset=iso-8859-1
     1. 保证组件小于25k
     2. Pack Components into a Multipart Document
 
+
+
 ### 什么是渐进增强  
+
 渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:  
 
 - 所有浏览器都必须能访问基本内容
@@ -259,9 +271,13 @@ Content-Type: text/html; charset=iso-8859-1
     - **504 Gateway Timeout**:
     - **505 HTTP Version Not Supported**:
 
+
+
 ## $CSS部分
 
+
 ### ``link``与``@import``的区别
+
 1. ``link``是HTML方式， ``@import``是CSS方式
 2. ``link``最大限度支持并行下载，``@import``过多嵌套导致串行下载，出现[FOUC](http://www.bluerobot.com/web/css/fouc.asp/)
 4. ``link``可以通过``rel="alternate stylesheet"``指定候选样式
@@ -270,13 +286,17 @@ Content-Type: text/html; charset=iso-8859-1
 6. 总体来说：**[link优于@import](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/)**  
 
 ### ``display: block;``和``display: inline;``的区别
+
 ``block``元素特点：  
+
 1.处于常规流中时，如果``width``没有设置，会自动填充满父容器  
 2.可以应用``margin/padding``  
 3.在没有设置高度的情况下会扩展高度以包含常规流中的子元素  
 4.处于常规流中时布局时在前后元素位置之间（独占一个水平空间）  
 5.忽略``vertical-align``  
+
 ``inline``元素特点  
+
 1.水平方向上根据``direction``依次布局  
 2.不会在元素前后进行换行  
 3.受``white-space``控制  
@@ -289,36 +309,45 @@ Content-Type: text/html; charset=iso-8859-1
 ### PNG, GIF, JPG的区别及如何选  
 参考资料： [选择正确的图片格式](http://www.yuiblog.com/blog/2008/11/04/imageopt-2/)  
 **GIF**:  
-1.8位像素，256色  
-2.无损压缩  
-3.支持简单动画  
-4.支持boolean透明  
-5.适合简单动画  
+
+1. 8位像素，256色  
+2. 无损压缩  
+3. 支持简单动画  
+4. 支持boolean透明  
+5. 适合简单动画  
+
 **JPEG**：  
-1.颜色限于256  
-2.有损压缩  
-3.可控制压缩质量  
-4.不支持透明 
-5.适合照片  
-**PNG**：  
-1.有PNG8和truecolor PNG  
-2.PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画  
-3.适合图标、背景、按钮  
+
+1. 颜色限于256  
+2. 有损压缩  
+3. 可控制压缩质量  
+4. 不支持透明 
+5. 适合照片  
+
+**PNG**：
+  
+1. 有PNG8和truecolor PNG  
+2. PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画  
+3. 适合图标、背景、按钮  
 
 ### CSS有哪些继承属性
+
 - 关于文字排版的属性如：`font`, `word-break`, `letter-spacing`,`text-align`,`tex--rendering`,`word-spacing`,`white-spacing`,`text-indent`,`text-transform`,`text-shadow`
 - `line-height`
 - `color`
 
 ### IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
+
 - IE5-8不支持``opacity``，解决办法：
 
 <pre>
 .opacity {
-    filter: alpha(opacity=50); /* for IE5-7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* for IE 8*/
+    opacity: 0.4
+    filter: alpha(opacity=60); /* for IE5-7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* for IE 8*/
 }
 </pre>
+
 
 - IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
 - IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
@@ -335,7 +364,11 @@ Content-Type: text/html; charset=iso-8859-1
 2）浮动元素``display: inline;``这样解决问题且无任何副作用：css标准规定浮动元素display:inline会自动调整为block
 - 通过为块级元素设置宽度和左右margin为auto时，IE6不能实现水平居中，解决方法：为父元素设置``text-align: center;``
 
+
+
+
 ### 容器包含若干浮动元素时如何清理(包含)浮动 
+
 1. 容器元素闭合标签前添加额外元素并设置``clear: both``
 2. 父元素触发块级格式化上下文(见块级可视化上下文部分)
 3. 设置容器元素伪元素进行清理[推荐的清理浮动方法](http://nicolasgallagher.com/micro-clearfix-hack/)  
@@ -369,22 +402,31 @@ Content-Type: text/html; charset=iso-8859-1
 }
 </pre>
 
+
+
 ### 什么是FOUC？如何避免？  
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。**解决方法**：把样式表放到文档的`head` 
 
+
+
 ### 如何创建块级格式化上下文（block formatting context）？有什么用
 创建规则：  
+
 1. 根元素  
 2. 浮动元素（``float``不是``none``）  
 3. 绝对定位元素（``position``取值为``absolute``或``fixed``）  
 4. ``display``取值为``inline-block``,``table-cell``, ``table-caption``,``flex``, ``inline-flex``之一的元素  
 5. ``overflow``不是``visible``的元素  
+
+
 作用：  
+
 1. 可以包含浮动元素
 2. 不被浮动元素覆盖  
 3. 阻止父子元素的margin折叠
 
 ### display, float, position的关系
+
 1. 如果``display``为none，那么position和float都不起作用，这种情况下元素不产生框
 2. 否则，如果position值为absolute或者fixed，框就是绝对定位的，float的计算值为none，display根据下面的表格进行调整。
 3. 否则，如果float不是none，框是浮动的，display根据下表进行调整
@@ -393,14 +435,22 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 总结起来：**绝对定位、浮动、根元素都需要调整``display``**
 ![display转换规则](img/display-adjust.png)
 
+
+
+
 ### 外边距折叠（collapsing margins)  
 毗邻的两个或多个``margin``会合并成一个margin，叫做外边距折叠。规则如下：  
+
 1. 两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠  
 2. 浮动元素/inline-block元素/绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠
 3. 创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
 4. 元素自身的margin-bottom和margin-top相邻时也会折叠
 
+
+
+
 ### 如何确定一个元素的包含块（containing block)
+
 1. 根元素的包含块叫做初始包含块，在连续媒体中他的尺寸与viewport相同并且anchored at the canvas origin；对于paged media，它的尺寸等于page area。初始包含块的direction属性与根元素相同。
 2. ``position``为``relative``或者``static``的元素，它的包含块由最近的块级（``display``为``block``,``list-item``, ``table``）祖先元素的**内容框**组成
 3. 如果元素``position``为``fixed``。对于连续媒体，它的包含块为viewport；对于paged media，包含块为page area
@@ -408,13 +458,20 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
     - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
     - 其他情况下包含块由祖先节点的**padding edge**组成  
 
+
+
+
 ### stacking context，布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
+
 1. 根元素的边界和背景  
 2. 常规流中的元素按照html中顺序  
 3. 浮动块  
 4. positioned元素按照html中出现顺序  
+
+
 如何创建stacking context：  
+
 1. 根元素  
 2. z-index不为auto的定位元素  
 3. a flex item with a z-index value other than 'auto'  
@@ -448,14 +505,18 @@ z轴上的默认层叠顺序如下（从下到上）：
 </pre>
 
 优点：  
+
 1. 跨浏览器，包括IE8-10  
 2. 无需其他特色标记，CSS代码量少  
 3. 完美支持图片居中  
 4. 宽度高度可变，可用百分比
 
 缺点  
+
 1. 必须声明高度  
-2. windows Phone设备上不起作用
+2. windows Phone设备上不起作用  
+
+,
 
 - **负外边距**：当元素宽度高度固定时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
 
@@ -492,8 +553,9 @@ z轴上的默认层叠顺序如下（从下到上）：
 2. 内容可能溢出容器
 3. 边距大小域与padding，box-sizing有关
 
+.
 
-    - **CSS3 Transform**居中：这是最简单的方法
+- **CSS3 Transform**居中：这是最简单的方法
 
 <pre>
 &lt;div class="parent">
@@ -569,18 +631,15 @@ z轴上的默认层叠顺序如下（从下到上）：
 <br />
 
 ## $javascript部分
-- **javascript有哪几种方法定义函数？**
+### javascript有哪几种方法定义函数
     1. [函数声明表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
     2. [function操作符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
     3. [Function 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
     4. [ES6:arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/arrow_functions)
 
-
 重要参考资料：[MDN:Functions_and_function_scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope)
 
-<br />
-
-- **应用程序存储和离线web应用**  
+### 应用程序存储和离线web应用
 HTML5新增应用程序缓存，允许web应用将应用程序自身保存到用户浏览器中，用户离线状态也能访问。  
 1.为html元素设置manifest属性:``<html manifest="myapp.appcache">``，其中后缀名只是一个约定，真正识别方式是通过``text/cache-manifest``作为MIME类型。所以需要配置服务器保证设置正确  
 2.manifest文件首行为``CACHE MANIFEST``，其余就是要缓存的URL列表，每个一行，相对路径都相对于manifest文件的url。注释以#开头  
@@ -692,47 +751,37 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 
 <br />
 
--  **对象到数字的转换步骤**
+### 对象到数字的转换步骤
     1. 如果对象有valueOf()方法并且返回元素值，javascript将返回值转换为数字作为结果
     2. 否则，如果对象有toString()并且返回原始值，javascript将返回结果转换为数字作为结果
     3. 否则，throws a TypeError
 
-<br />
-
-- **&lt;,&gt;,&lt;=,&gt;=的比较规则**  
+### &lt;,&gt;,&lt;=,&gt;=的比较规则
 所有比较运算符都支持任意类型，但是**比较只支持数字和字符串**，所以需要执行必要的转换然后进行比较，转换规则如下:
     1. 如果操作数是对象，转换为原始值：如果valueOf方法返回原始值，则使用这个值，否则使用toString方法的结果，如果转换失败则报错
     2. 经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的16位unicode值的大小）
     3. 否则，如果有一个操作数不是字符串，**将两个操作数转换为数字**进行比较
 
-
-<br />
-
-- **+运算符工作流程**
+### +运算符工作流程
     1. 如果有操作数是对象，转换为原始值
     2. 此时如果有**一个操作数是字符串**，其他的操作数都转换为字符串并执行连接
     3. 否则：**所有操作数都转换为数字并执行加法**
 
+### 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组
 
-<br />
+- arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象
+- arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参时会同时修改实参
+- arguments.length为实参的个数（Function.length表示形参长度）
+- arguments.callee为当前正在执行的函数本身，使用这个属性进行递归调用时需注意this的变化
+- arguments.caller为调用当前函数的函数（已被遗弃）
+- 转换为数组：<code>var args = Array.prototype.slice.call(arguments, 0);</code>
 
-- **函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组**
-    - arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象
-    - arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参时会同时修改实参
-    - arguments.length为实参的个数（Function.length表示形参长度）
-    - arguments.callee为当前正在执行的函数本身，使用这个属性进行递归调用时需注意this的变化
-    - arguments.caller为调用当前函数的函数（已被遗弃）
-    - 转换为数组：<code>var args = Array.prototype.slice.call(arguments, 0);</code>
-    
+### DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容
 
-<br />
-
-- **DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容**
-    - DOM事件包含捕获（capture）和冒泡（bubble）两个阶段：捕获阶段事件从window开始触发事件然后通过祖先节点一次传递到触发事件的DOM元素上；冒泡阶段事件从初始元素依次向祖先节点传递直到window
-    - 标准事件监听elem.addEventListener(type, handler, capture)/elem.removeEventListener(type, handler, capture)：handler接收保存事件信息的event对象作为参数，event.target为触发事件的对象，handler调用上下文this为绑定监听器的对象，event.preventDefault()取消事件默认行为，event.stopPropagation()/event.stopImmediatePropagation()取消事件传递
-    - 老版本IE事件监听elem.attachEvent('on'+type, handler)/elem.detachEvent('on'+type, handler)：handler不接收event作为参数，事件信息保存在window.event中，触发事件的对象为event.srcElement，handler执行上下文this为window使用闭包中调用handler.call(elem, event)可模仿标准模型，然后返回闭包，保证了监听器的移除。event.returnValue为false时取消事件默认行为，event.cancleBubble为true时取消时间传播
-
-    - 通常利用事件冒泡机制托管事件处理程序提高程序性能。
+- DOM事件包含捕获（capture）和冒泡（bubble）两个阶段：捕获阶段事件从window开始触发事件然后通过祖先节点一次传递到触发事件的DOM元素上；冒泡阶段事件从初始元素依次向祖先节点传递直到window
+- 标准事件监听elem.addEventListener(type, handler, capture)/elem.removeEventListener(type, handler, capture)：handler接收保存事件信息的event对象作为参数，event.target为触发事件的对象，handler调用上下文this为绑定监听器的对象，event.preventDefault()取消事件默认行为，event.stopPropagation()/event.stopImmediatePropagation()取消事件传递
+- 老版本IE事件监听elem.attachEvent('on'+type, handler)/elem.detachEvent('on'+type, handler)：handler不接收event作为参数，事件信息保存在window.event中，触发事件的对象为event.srcElement，handler执行上下文this为window使用闭包中调用handler.call(elem, event)可模仿标准模型，然后返回闭包，保证了监听器的移除。event.returnValue为false时取消事件默认行为，event.cancleBubble为true时取消时间传播
+- 通常利用事件冒泡机制托管事件处理程序提高程序性能。
 
 <pre>
 /**
