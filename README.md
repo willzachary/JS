@@ -786,8 +786,7 @@ var EventUtil = {
 };
 </pre>
 
-
-- **评价一下三种方法实现继承的优缺点，并改进**
+### 评价一下三种方法实现继承的优缺点，并改进
 
 <pre>
 function Shape() {}
@@ -808,11 +807,49 @@ Rect.prototype.area = function () {
 };
 </pre>
 
-1.方法1缺点：创建父类
+方法1：
 
-<br />
+1. 优点：正确设置原型链实现继承
+2. 优点：父类实例属性得到继承，原型链查找效率提高，也能为一些属性提供合理的默认值
+3. 缺点：父类实例属性为引用类型时，不恰当地修改会导致所有子类被修改
+4. 缺点：创建父类实例作为子类原型时，可能无法确定构造函数需要的合理参数，这样提供的参数继承给子类没有实际意义，当子类需要这些参数时应该在构造函数中进行初始化和设置
+5. 总结：继承应该是继承方法而不是属性，为子类设置父类实例属性应该是通过在子类构造函数中调用父类构造函数进行初始化
 
-- **完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组**  
+方法2：
+
+1. 优点：正确设置原型链实现继承
+2. 缺点：父类构造函数原型与子类相同。修改子类原型添加方法会修改父类
+
+方法3：
+
+1. 优点：正确设置原型链且避免方法1.2中的缺点
+2. 缺点：ES5方法需要注意兼容性
+
+改进：
+
+1. 所有三种方法应该在子类构造函数中调用父类构造函数实现实例属性初始化
+
+    <pre>function Rect() {
+        Shape.call(this);
+    }
+    </pre>
+
+
+2. 用新创建的对象替代子类默认原型，设置``Rect.prototype.constructor = Rect;``保证一致性
+3. 第三种方法的polyfill：
+
+    <pre>function create(obj) {
+        if (Object.create) {
+            return Object.create(obj);
+        }
+
+        function f() {};
+        f.prototype = obj;
+        return new f();
+    }
+    </pre>
+
+### 完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组
 如：[1, [2, [ [3, 4], 5], 6]] => [1, 2, 3, 4, 5, 6]
 
 <pre>
@@ -836,9 +873,7 @@ Rect.prototype.area = function () {
     console.log(result);
 </pre>
 
-<br />
-
-- **如何判断一个对象是否为数组**  
+### 如何判断一个对象是否为数组
 如果浏览器支持Array.isArray()可以直接判断否则需进行必要判断
 
 <pre>
@@ -856,9 +891,7 @@ function isArray(arg) {
 }
 </pre>
 
-<br /><br /><br />
-
-- **请评价以下代码并给出改进意见**
+### 请评价以下代码并给出改进意见
 
 <pre>
 if (window.addEventListener) {
@@ -878,17 +911,19 @@ else if (document.all) {
 作用：浏览器功能检测实现跨浏览器DOM事件绑定
 
 优点：  
-1. 测试代码只运行一次，根据浏览器确定绑定方法  
+
+1. 测试代码只运行一次，根据浏览器确定绑定方法
 2. 通过``listener.apply(el)``解决IE下监听器this与标准不一致的地方  
 3. 在浏览器不支持的情况下提供简单的功能，在标准浏览器中提供捕获功能
 
 缺点：  
+
 1. document.all作为IE检测不可靠，应该使用if(el.attachEvent)  
 2. addListener在不同浏览器下API不一样  
 3. ``listener.apply``使this与标准一致但监听器无法移除  
 4. 未解决IE下listener参数event。 target问题
 
-改进
+改进:
 
 <pre>
 var addListener;
@@ -915,9 +950,7 @@ else if (window.attachEvent) {
 }
 </pre>
 
-<br /><br /><br /><br /><br />
-
-- **如何判断一个对象是否为函数**  
+### 如何判断一个对象是否为函数  
 
 <pre>
 /**
@@ -939,15 +972,14 @@ function isFunction(arg) {
 }
 </pre>
 
-<br />
-
-- **编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码**  
+### 编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码
 
 <pre>
 /**
  * 解析query string转换为对象，一个key有多个值时生成数组
  * 
- * @param {String} query 需要解析的query字符串，开头可以是?，按照application/x-www-form-urlencoded编码
+ * @param {String} query 需要解析的query字符串，开头可以是?，
+ * 按照application/x-www-form-urlencoded编码
  * @return {Object} 参数解析后的对象
  */
 function parseQuery(query) {
@@ -1000,13 +1032,11 @@ function isArray(arg) {
     return false;
 }
 /**
-console.log(parseQuery('sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#ie=UTF-8&q=url%20with%20query&sourceid=chrome-psyapi2'));
+console.log(parseQuery('sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8'));
  */
 </pre>
 
-<br /><br /><br /><br />
-
-- **解析一个完整的url，返回Object包含域与window.location相同**  
+### 解析一个完整的url，返回Object包含域与window.location相同  
 
 <pre>
 /**
@@ -1031,7 +1061,8 @@ console.log(parseQuery('sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#ie=UTF-8&q
  */ 
 function parseUrl(url) {
     var result = {};
-    var keys = ['href', 'origin', 'protocol', 'host', 'hostname', 'port', 'pathname', 'search', 'hash'];
+    var keys = ['href', 'origin', 'protocol', 'host', 
+                'hostname', 'port', 'pathname', 'search', 'hash'];
     var i, len;
     var regexp = /(([^:]+:)\/\/(([^:\/\?#]+)(:\d+)?))(\/[^?#]*)?(\?[^#]*)?(#.*)?/;
 
@@ -1047,9 +1078,7 @@ function parseUrl(url) {
 }
 </pre>
 
-<br /><br /><br /><br /><br /><br />
-
-- **完成函数getScrollOffset返回窗口滚动条偏移量**
+### 完成函数getScrollOffset返回窗口滚动条偏移量
 
 <pre>
 /**
@@ -1085,12 +1114,9 @@ function getScrollOffset(w) {
 }
 </pre>
 
-<br /><br />
-
-- **现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。**
+### 现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。
 
 <pre>
-
 function richText(text) {
     var div = document.createElement('div');
     div.innerHTML = text;
@@ -1105,18 +1131,13 @@ function richText(text) {
 
     return div.innerHTML;
 }
-
 </pre>
 
-<br /><br /><br /><br />
-
-- **请实现一个Event类，继承自此类的对象都会拥有两个方法on和trigger**
+### 请实现一个Event类，继承自此类的对象都会拥有两个方法on和trigger
 <pre>
 </pre>
 
-<br /><br /><br /><br /><br /><br /><br />
-
-- **编写一个函数将列表子元素顺序反转**
+### 编写一个函数将列表子元素顺序反转
 
 <pre>
 &lt;ul id="target">
@@ -1138,9 +1159,7 @@ function richText(text) {
 &lt;/script>
 </pre>
 
-<br /><br /><br /><br /><br />
-
-- **以下函数的作用是？空白区域应该填写什么**
+### 以下函数的作用是？空白区域应该填写什么
 
 <pre>
 // define
@@ -1172,9 +1191,7 @@ define部分定义一个简单的模板类，使用{}作为转义标记，中间
 1. ``Array.prototype.slice.call(arguments, 0)``
 2. ``/\{\s*(\d+)\s*\}/g``
 
-<br /><br /><br /><br />
-
-- **编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）**
+### 编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）
 
 <pre>
 /**
@@ -1244,7 +1261,7 @@ function serializeForm(form) {
 
 <br />
 
-- **使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器**
+### 使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器
 
 <pre>
 &lt;ul id="nav">
@@ -1345,9 +1362,7 @@ EventUtil.on(nav, 'click', function (event) {
 });
 </pre>
 
-<br />
-
-- **有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重**  
+### 有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重
 
 <pre>
     /**
@@ -1396,6 +1411,3 @@ EventUtil.on(nav, 'click', function (event) {
     normalize(input);
     console.log(input);
 </pre>
-
-
-- 
