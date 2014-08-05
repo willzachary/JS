@@ -507,7 +507,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 优点：  
 
 1. 跨浏览器，包括IE8-10  
-2. 无需其他特色标记，CSS代码量少  
+2. 无需其他冗余标记，CSS代码量少  
 3. 完美支持图片居中  
 4. 宽度高度可变，可用百分比
 
@@ -516,9 +516,9 @@ z轴上的默认层叠顺序如下（从下到上）：
 1. 必须声明高度  
 2. windows Phone设备上不起作用  
 
-,
+.
 
-- **负外边距**：当元素宽度高度固定时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
+- **负外边距**：当元素宽度高度为固定值时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
 
 <pre>
 &lt;div class="parent">
@@ -528,7 +528,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 .parent {
     position: relative;
 }
-.absolute-center {
+.negative-margin-center {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -555,7 +555,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 
 .
 
-- **CSS3 Transform**居中：这是最简单的方法
+- **CSS3 Transform**居中：
 
 <pre>
 &lt;div class="parent">
@@ -565,7 +565,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 .parent {
     position: relative;
 }
-.absolute-center {
+.transform-center {
     position: absolute;
     left: 50%;
     top: 50%;
