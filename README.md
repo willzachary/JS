@@ -109,7 +109,6 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 23. **显示页面**（HTML解析过程中会逐步显示页面）
 
 ### HTTP request报文结构是怎样的
-
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)中进行了定义：  
 
 1. 首行是**Request-Line**包括：**请求方法**，**请求URI**，**协议版本**，**CRLF**  
@@ -136,7 +135,6 @@ name=qiu&age=25
 </pre>
 
 ### HTTP response报文结构是怎样的
-
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：  
 
 1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF  
@@ -209,9 +207,7 @@ Content-Type: text/html; charset=iso-8859-1
     2. Pack Components into a Multipart Document
 
 
-
 ### 什么是渐进增强  
-
 渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:  
 
 - 所有浏览器都必须能访问基本内容
@@ -274,8 +270,6 @@ Content-Type: text/html; charset=iso-8859-1
 
 
 ## $CSS部分
-
-
 ### ``link``与``@import``的区别
 
 1. ``link``是HTML方式， ``@import``是CSS方式
@@ -305,6 +299,8 @@ Content-Type: text/html; charset=iso-8859-1
 6.非替换行内元素的行框高由``line-height``确定，替换行内元素的行框高由``height``,``margin``,``padding``,``border``决定  
 6.浮动或绝对定位时会转换为``block``  
 7.``vertical-align``属性生效  
+
+
 
 ### PNG, GIF, JPG的区别及如何选  
 参考资料： [选择正确的图片格式](http://www.yuiblog.com/blog/2008/11/04/imageopt-2/)  
@@ -338,6 +334,70 @@ Content-Type: text/html; charset=iso-8859-1
 
 ### IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
 
+- ``ol``内``li``的序号劝慰1，不递增。解决方法：为li设置样式``display: list-item;``
+
+- 未定位父元素``overflow: auto;``，包含``position: relative;``子元素，子元素高于父元素时会溢出。解决办法：1）子元素去掉``position: relative;``; 2）不能为子元素去掉定位时，父元素``position: relative;``
+
+<pre>
+&lt;style type="text/css">
+.outer {
+    width: 215px;
+    height: 100px;
+    border: 1px solid red;
+    overflow: auto;
+    position: relative;  /* 修复bug */
+}
+.inner {
+    width: 100px;
+    height: 200px;
+    background-color: purple;
+    position: relative;
+}
+&lt;/style>
+
+&lt;div class="outer">
+    &lt;div class="inner">&lt;/div>
+&lt;/div>
+</pre>
+
+- IE6只支持``a``标签的``:hover``伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，添加类实现效果：
+
+<pre>
+&lt;style type="text/css">
+.p:hover,
+.hover {
+    background: purple;
+}
+&lt;/style>
+
+&lt;p class="p" id="target">aaaa bbbbb&lt;span>DDDDDDDDDDDd&lt;/span> aaaa lkjlkjdf j&lt;/p>
+
+&lt;script type="text/javascript">
+function addClass(elem, cls) {
+    if (elem.className) {
+        elem.className += ' ' + cls;
+    } else {
+        elem.className = cls;
+    }
+}
+function removeClass(elem, cls) {
+    var className = ' ' + elem.className + ' ';
+    var reg = new RegExp(' +' + cls + ' +', 'g');
+    elem.className = className.replace(reg, ' ').replace(/^ +| +$/, '');
+}
+
+var target = document.getElementById('target');
+if (target.attachEvent) {
+    target.attachEvent('onmouseenter', function () {
+        addClass(target, 'hover');
+    });
+    target.attachEvent('onmouseleave', function () {
+        removeClass(target, 'hover');
+    })
+}
+&lt;/script>
+</pre>
+
 - IE5-8不支持``opacity``，解决办法：
 
 <pre>
@@ -347,7 +407,6 @@ Content-Type: text/html; charset=iso-8859-1
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* for IE 8*/
 }
 </pre>
-
 
 - IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
 - IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
@@ -363,9 +422,6 @@ Content-Type: text/html; charset=iso-8859-1
 1）使用padding控制间距。  
 2）浮动元素``display: inline;``这样解决问题且无任何副作用：css标准规定浮动元素display:inline会自动调整为block
 - 通过为块级元素设置宽度和左右margin为auto时，IE6不能实现水平居中，解决方法：为父元素设置``text-align: center;``
-
-
-
 
 ### 容器包含若干浮动元素时如何清理(包含)浮动 
 
