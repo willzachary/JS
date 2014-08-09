@@ -4,11 +4,17 @@
 
 1. $HTML, HTTP, web综合问题  
 2. $CSS部分  
-3. $javascript部分  
+3. $javascript概念部分
+4. $javascript编程部分
 
 
 
 ## $HTML， HTTP，web综合问题
+
+### &lt;img>的``title``和``alt``有什么区别
+
+- ``title``是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
+- ``alt``是``<img>``的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
 
 ### doctype是什么，举例常见doctype及特点
 
@@ -29,7 +35,12 @@
 7. **HTML 5**: ``<!doctype html>``
 
 ### HTML全局属性(global attribute)有哪些  
-参考资料：[MDN: html global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) 
+参考资料：[MDN: html global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)或者[W3C HTML global-attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)
+
+- ``accesskey``:设置快捷键，提供快速访问元素如&lt;a href="#" accesskey="a">aaa&lt;/a>在windows下的firefox中按``alt + shift + a``可激活元素
+- ``class``:为元素设置类标识，多个类名用空格分开，CSS和javascript可通过class属性获取元素
+- ``contenteditable``: 指定元素内容是否可编辑
+- ``contextmenu``: 
 
 ### 什么是web语义化，有什么好处
 web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。  
@@ -562,161 +573,40 @@ z轴上的默认层叠顺序如下（从下到上）：
 ### 如何竖直居中一个元素  
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
 
-- 元素高度声明的情况下在父容器中居中：**绝对居中法**
-
-<pre>
-&lt;div class="parent">
-    &lt;div class="absolute-center">&lt;/div>
-&lt;/div>
-
-.parent {
-    position: relative;
-}
-.absolute-center {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    height: 70%;
-    width: 70%;
-}
-</pre>
-
-优点：  
-
-1. 跨浏览器，包括IE8-10  
-2. 无需其他冗余标记，CSS代码量少  
-3. 完美支持图片居中  
-4. 宽度高度可变，可用百分比
-
-缺点  
-
-1. 必须声明高度  
-2. windows Phone设备上不起作用  
-
-.
-
-- **负外边距**：当元素宽度高度为固定值时。设置margin-top/margin-left为宽度高度一半的相反数，top:50%;left:50%
-
-<pre>
-&lt;div class="parent">
-    &lt;div class="negative-margin-center">&lt;/div>
-&lt;/div>
-
-.parent {
-    position: relative;
-}
-.negative-margin-center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    margin-left: -150px;
-    margin-top: -150px;
-
-
-    height: 300px;
-    width: 300px;
-}
-</pre>
-
-优点：
-
-1. 良好的跨浏览器特性，兼容IE6-7
-2. 代码量少
-
-缺点：
-
-1. 不能自适应，不支持百分比尺寸和min-/max-属性设置
-2. 内容可能溢出容器
-3. 边距大小域与padding，box-sizing有关
-
-.
-
-- **CSS3 Transform**居中：
-
-<pre>
-&lt;div class="parent">
-    &lt;div class="transform-center">&lt;/div>
-&lt;/div>
-
-.parent {
-    position: relative;
-}
-.transform-center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    margin: auto;
-    width: 50%;
-
-    -webkit-transform: translate(-50%， -50%);
-       -moz-transform: translate(-50%， -50%);
-            transform: translate(-50%, -50%);
-}
-</pre>
-
-优点：
-
-1. 内容高度可变
-2. 代码量少
-
-缺点：
-
-1. IE8不支持
-2. 属性需要浏览器厂商前缀
-3. 可能干扰其他transform效果
-
-    - **table-cell**居中：
-
-
-<pre>
-&lt;div class="center-container is-table">
-    &lt;div class="table-cell">
-        &lt;div class="center-block">&lt;/div>
-    &lt;/div>
-&lt;/div>
-
-.center-container.is-table {
-    display: table;
-}
-
-.is-table .table-cell {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.is-table .center-block {
-    width: 50%;
-    margin: 0 auto;
-}
-</pre>
-
-优点：
-
-1. 高度可变
-2. 内容溢出会将父元素撑开
-3. 跨浏览器兼容性好
-
-缺点：
-
-1. 需要额外html标记
-
-    - **flexbox**居中
-
-
-<br />
-
 ## $javascript部分
+
+### javascript有哪几种数据类型
+六种基本数据类型
+
+- undefined
+- null
+- string
+- boolean
+- number
+- [symbol](https://developer.mozilla.org/en-US/docs/Glossary/Symbol)(ES6)
+
+一种引用类型
+
+- Object
+
+### 什么闭包，闭包有什么用
+**闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量**。闭包作用域域链通常包括三个部分：
+
+1. 函数本身作用域。
+2. 包含闭包的函数的作用域。
+3. 全局作用域。
+
+闭包常见用途：
+
+1. 创建特权方法用于访问控制
+2. 事件处理程序及回调
+
 ### javascript有哪几种方法定义函数
-    1. [函数声明表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-    2. [function操作符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
-    3. [Function 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
-    4. [ES6:arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/arrow_functions)
+
+1. [函数声明表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+2. [function操作符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
+3. [Function 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+4. [ES6:arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/arrow_functions)
 
 重要参考资料：[MDN:Functions_and_function_scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope)
 
@@ -762,9 +652,6 @@ localStorage.clear();  // remove all data
 
 </pre>
 
-
-<br />
-
 - **cookie及其操作**  
     - cookie是web浏览器存储的少量数据，最早设计为服务器端使用，作为HTTP协议的扩展实现。cookie数据会自动在浏览器和服务器之间传输。
     - 通过读写cookie检测是否支持
@@ -795,9 +682,8 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 - **javascript有哪些方法定义对象**
     1. 对象字面量： <code>var obj = {};</code>
     2. 构造函数： <code>var obj = new Object();</code>
-    3. Object.create(): <code>var obj = Object.create(Object.prototype);</code>
+    3. Object.create(): ``var obj = Object.create(Object.prototype);````
 
-<br />
 
 - **===运算符判断相等的流程是怎样的**  
 
@@ -808,8 +694,6 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
     5. 如果都是数值型并且数值相等，他们相等， -0等于0
     6. 如果他们都是字符串并且在相同位置包含相同的16位值，他它们相等；如果在长度或者内容上不等，它们不相等；两个字符串显示结果相同但是编码不同==和===都认为他们不相等
     7. 如果他们指向相同对象、数组、函数，它们相等；如果指向不同对象，他们不相等
-
-<br />
 
 - **==运算符判断相等的流程是怎样的**
 
@@ -978,6 +862,111 @@ Rect.prototype.area = function () {
         return new f();
     }
     </pre>
+
+## $javascript编程部分
+
+### 编写javascript深度克隆函数deepClone
+
+### 补充代码，鼠标单击Button1后将Button1移动到Button2的后面
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>TEst</title>
+    </head>
+    <body>
+
+    <div>
+       <input type="button" id ="button1" value="1" />
+       <input type="button" id ="button2" value="2" />
+    </div>
+
+    <script type="text/javascript">
+        var btn1 = document.getElementById('button1');
+        var btn2 = document.getElementById('button2');
+
+        addListener(btn1, 'click', function (event) {
+            btn1.parentNode.insertBefore(btn2, btn1);
+        });
+
+        function addListener(elem, type, handler) {
+            if (elem.addEventListener) {
+                elem.addEventListener(type, handler, false);
+                return handler;
+            } else if (elem.attachEvent) {
+                function wrapper() {
+                    var event = window.event;
+                    event.target = event.srcElement;
+                    handler.call(elem, event);
+                }
+                elem.attachEvent('on' + type, wrapper);
+                return wrapper;
+            }
+        }
+
+    </script>
+    </body>
+    </html>
+
+### 网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”
+
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>TEst</title>
+    </head>
+    <body>
+
+        <span id="target"></span>
+
+
+    <script type="text/javascript">
+        // 为了简化。每月默认30天
+        function getTimeString() {
+            var start = new Date();
+            var end = new Date(start.getFullYear() + 1, 0, 1);
+            var elapse = Math.floor((end - start) / 1000);
+
+            var seconds = elapse % 60 ;
+            var minutes = Math.floor(elapse / 60) % 60;
+            var hours = Math.floor(elapse / (60 * 60)) % 24;
+            var days = Math.floor(elapse / (60 * 60 * 24)) % 30;
+            var months = Math.floor(elapse / (60 * 60 * 24 * 30)) % 12;
+            var years = Math.floor(elapse / (60 * 60 * 24 * 30 * 12));
+
+            return start.getFullYear() + '年还剩' + years + '年' + months + '月' + days + '日'
+                + hours + '小时' + minutes + '分' + seconds + '秒';
+        }
+
+        function domText(elem, text) {
+            if (text == undefined) {
+
+                if (elem.textContent) {
+                    return elem.textContent;
+                } else if (elem.innerText) {
+                    return elem.innerText;
+                }
+            } else {
+                if (elem.textContent) {
+                    elem.textContent = text;
+                } else if (elem.innerText) {
+                    elem.innerText = text;
+                } else {
+                    elem.innerHTML = text;
+                }
+            }
+        }
+
+        var target = document.getElementById('target');
+
+        setInterval(function () {
+            domText(target, getTimeString());
+        }, 1000)
+    </script>
+
+    </body>
+    </html>
 
 ### 完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组
 如：[1, [2, [ [3, 4], 5], 6]] => [1, 2, 3, 4, 5, 6]
