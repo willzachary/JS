@@ -7,9 +7,25 @@
 3. $javascript概念部分
 4. $javascript编程部分
 
-
-
 ## $HTML， HTTP，web综合问题
+
+### 前端需要注意哪些SEO
+
+1. 合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可
+2. 语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页
+3. 重要内容HTML代码放在最前：搜索引擎抓取HTMl顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取
+4. 重要内容不要用js输出：爬虫不会执行js获取内容
+5. 少用iframe：搜索引擎不会抓取iframe中的内容
+6. 非装饰性图片必须加alt
+7. 提高网站速度：网站速度是搜索引擎排序的一个重要指标
+
+### web开发中会话跟踪的方法有哪些
+
+1. cookie
+2. session
+3. url重写
+4. 隐藏input
+5. ip地址
 
 ### &lt;img>的``title``和``alt``有什么区别
 
@@ -68,6 +84,11 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 
 1. 在浏览器地址栏输入URL
 2. 浏览器查看**缓存**，如果请求资源在缓存中并且新鲜，跳转到转码步骤
+    1. 如果资源未缓存，发起新请求
+    2. 如果已缓存，检验是否足够新鲜，足够新鲜直接提供给客户端，否则与服务器进行验证。
+    3. 检验新鲜通常有两个HTTP头进行控制``Expires``和``Cache-Control``：
+        - HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期
+        - HTTP1.1增加了Cache-Control: max-age=,值为以秒为单位的最大新鲜时间
 3. 浏览器**解析URL**获取协议，主机，端口，path
 4. 浏览器**组装一个HTTP（GET）请求报文**
 5. 浏览器**获取主机ip地址**，过程如下：
@@ -286,8 +307,125 @@ Content-Type: text/html; charset=iso-8859-1
 
 ## $CSS部分
 
-### specified value,computed value，used value计算方法
+### css sprite是什么，有什么优缺点
+概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。  
 
+优点：
+
+1. 减少HTTP请求数，极大地提高页面加载速度
+2. 增加图片信息重复度，提高压缩比，减少图片大小
+3. 更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现
+
+缺点：
+
+1. 图片合并麻烦
+2. 维护麻烦，修改一个图片可能需要从新布局整个图片，样式
+
+
+### ``display: none;``与``visibility: hidden;``的区别
+联系：它们都能让元素不可见
+
+区别：
+
+1. display:none;会让元素完全从渲染树中消失，渲染的时候不占据任何空间；visibility: hidden;不会让元素从渲染树消失，渲染师元素继续占据空间，只是内容不可见
+2. display: none;是非继承属性，子孙节点消失由于元素从渲染树消失造成，通过修改子孙节点属性无法显示；visibility: hidden;是继承属性，子孙节点消失由于继承了hidden，通过设置visibility: visible;可以让子孙节点显式
+3. 修改常规流中元素的display通常会造成文档重排。修改visibility属性只会造成本元素的重绘。
+4. 读屏器不会读取display: none;元素内容；会读取visibility: hidden;元素内容
+
+### css hack原理及常用hack
+原理：利用**不同浏览器对CSS的支持和解析结果不一样**编写针对特定浏览器样式。常见的hack有1）属性hack。2）选择器hack。3）IE条件注释  
+
+- IE条件注释：适用于[IE5, IE9]常见格式如下
+
+<pre>
+&lt;!--[if IE 6]>
+Special instructions for IE 6 here
+&lt;![endif]-->
+</pre>
+
+- 选择器hack：不同浏览器对选择器的支持不一样
+
+<pre>
+/***** Selector Hacks ******/
+
+/* IE6 and below */
+* html #uno  { color: red }
+ 
+/* IE7 */
+*:first-child+html #dos { color: red } 
+ 
+/* IE7, FF, Saf, Opera  */
+html>body #tres { color: red }
+ 
+/* IE8, FF, Saf, Opera (Everything but IE 6,7) */
+html>/**/body #cuatro { color: red }
+ 
+/* Opera 9.27 and below, safari 2 */
+html:first-child #cinco { color: red }
+ 
+/* Safari 2-3 */
+html[xmlns*=""] body:last-child #seis { color: red }
+ 
+/* safari 3+, chrome 1+, opera9+, ff 3.5+ */
+body:nth-of-type(1) #siete { color: red }
+ 
+/* safari 3+, chrome 1+, opera9+, ff 3.5+ */
+body:first-of-type #ocho {  color: red }
+ 
+/* saf3+, chrome1+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ #diez  { color: red  }
+}
+ 
+/* iPhone / mobile webkit */
+@media screen and (max-device-width: 480px) {
+ #veintiseis { color: red  }
+}
+ 
+/* Safari 2 - 3.1 */
+html[xmlns*=""]:root #trece  { color: red  }
+ 
+/* Safari 2 - 3.1, Opera 9.25 */
+*|html[xmlns*=""] #catorce { color: red  }
+ 
+/* Everything but IE6-8 */
+:root *> #quince { color: red  }
+ 
+/* IE7 */
+*+html #dieciocho {  color: red }
+ 
+/* Firefox only. 1+ */
+#veinticuatro,  x:-moz-any-link  { color: red }
+ 
+/* Firefox 3.0+ */
+#veinticinco,  x:-moz-any-link, x:default  { color: red  }
+</pre>
+
+- 属性hack：不同浏览器解析bug或方法
+
+<pre>
+ 
+/* IE6 */
+#once { _color: blue }
+ 
+/* IE6, IE7 */
+#doce { *color: blue; /* or #color: blue */ }
+ 
+/* Everything but IE6 */
+#diecisiete { color/**/: blue }
+ 
+/* IE6, IE7, IE8 */
+#diecinueve { color: blue\9; }
+ 
+/* IE7, IE8 */
+#veinte { color/*\**/: blue\9; }
+ 
+/* IE6, IE7 -- acts as an !important */
+#veintesiete { color: blue !ie; } /* string after ! can be anything */
+</pre>
+
+
+### specified value,computed value，used value计算方法
 
 - specified value: 计算方法如下：
     1. 如果样式表设置了一个值，使用这个值
@@ -368,7 +506,17 @@ Content-Type: text/html; charset=iso-8859-1
 - `line-height`
 - `color`
 
-### IE浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
+### IE6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
+
+- IE6不支持min-height，解决办法使用css hack：
+
+<pre>
+.target {
+    min-height: 100px;
+    height: auto !important;
+    height: 100px;   // IE6下内容高度超过会自动扩展高度
+}
+</pre>
 
 - ``ol``内``li``的序号劝慰1，不递增。解决方法：为li设置样式``display: list-item;``
 
@@ -574,6 +722,32 @@ z轴上的默认层叠顺序如下（从下到上）：
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
 
 ## $javascript部分
+
+### sessionStorage, localStorage, cookie区别
+
+1. 都会在浏览器端保存，有大小限制，同源限制
+2. cookie会在请求时发送到服务器，作为会话标识，服务器可修改cookie；web storage不会发送到服务器
+3. cookie有path概念，子路径可以访问父路径cookie，父路径不能访问子路径cookie
+4. 有效期：cookie在设置的有效期内有效，默认为浏览器关闭；sessionStorage在窗口关闭前有效，localStorage长期有效，直到用户删除
+5. 共享：sessionStorage不能共享，localStorage在同源文档之间共享，cookie在同源且符合path规则的文档之间共享
+6. localStorage的修改会促发其他文档窗口的update事件
+7. cookie有secure属性要求HTTPS传输
+8. 浏览器不能保存超过300个cookie，单个服务器不能超过20个，每个cookie不能超过4k。web storage大小支持能达到5M
+
+### javascript跨域通信
+同源：两个文档同源需满足
+
+1. 协议相同
+2. 域名相同
+3. 端口相同
+
+跨域通信：js进行DOM操作、通信时如果目标与当前窗口不满足同源条件，浏览器为了安全会阻止跨域操作。跨域通信通常有以下方法
+
+- 如果是log之类的简单**单项通信**，新建``<img>``,``<script>``,``<link>``,``<iframe>``元素，通过src，href属性设置为目标url。实现跨域请求
+- 如果请求**json数据**，使用``<script>``进行jsonp请求
+- 现代浏览器中**多窗口通信**使用HTML5规范的targetWindow.postMessage(data, origin);其中data是需要发送的对象，origin是目标窗口的origin。window.addEventListener('message', handler, false);handler的event.data是postMessage发送来的数据，event.origin是发送窗口的origin，event.source是发送消息的窗口引用
+- 内部服务器代理请求跨域url，然后返回数据
+- 跨域请求数据，现代浏览器可使用HTML5规范的CORS功能，只要目标服务器返回HTTP头部**``Access-Control-Allow-Origin: *``**即可像普通ajax一样访问跨域资源
 
 ### javascript有哪几种数据类型
 六种基本数据类型
