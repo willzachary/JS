@@ -734,7 +734,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 ### 如何竖直居中一个元素  
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
 
-## $javascript部分
+## $javascript概念部分
 
 ### sessionStorage, localStorage, cookie区别
 
@@ -1051,6 +1051,9 @@ Rect.prototype.area = function () {
     </pre>
 
 ## $javascript编程部分
+
+### 完成下面的tool-tip
+![xxx](img/tip-box.jpg)
 
 ### 编写javascript深度克隆函数deepClone
 
@@ -1437,62 +1440,107 @@ function parseUrl(url) {
 
 ### 完成函数getScrollOffset返回窗口滚动条偏移量
 
-<pre>
-/**
- * 获取指定window中滚动条的偏移量，如未指定则获取当前window
- * 滚动条偏移量
- * 
- * @param {window} w 需要获取滚动条偏移量的窗口
- * @return {Object} obj.x为水平滚动条偏移量,obj.y为竖直滚动条偏移量
- */
-function getScrollOffset(w) {
-    w =  w || window;
-    // 如果是标准浏览器
-    if (w.pageXOffset != null) {
+    /**
+     * 获取指定window中滚动条的偏移量，如未指定则获取当前window
+     * 滚动条偏移量
+     * 
+     * @param {window} w 需要获取滚动条偏移量的窗口
+     * @return {Object} obj.x为水平滚动条偏移量,obj.y为竖直滚动条偏移量
+     */
+    function getScrollOffset(w) {
+        w =  w || window;
+        // 如果是标准浏览器
+        if (w.pageXOffset != null) {
+            return {
+                x: w.pageXOffset, 
+                y: w.pageYOffset
+            };
+        }
+
+        // 老版本IE，根据兼容性不同访问不同元素
+        var d = w.document;
+        if (d.compatMode === 'CSS1Compat') {
+            return {
+                x: d.documentElement.scrollLeft,
+                y: d.documentElement.scrollTop
+            }
+        }
+
         return {
-            x: w.pageXOffset, 
-            y: w.pageYOffset
+            x: d.body.scrollLeft,
+            y: d.body.scrollTop
         };
     }
 
-    // 老版本IE，根据兼容性不同访问不同元素
-    var d = w.document;
-    if (d.compatMode === 'CSS1Compat') {
-        return {
-            x: d.documentElement.scrollLeft,
-            y: d.documentElement.scrollTop
-        }
-    }
-
-    return {
-        x: d.body.scrollLeft,
-        y: d.body.scrollTop
-    };
-}
-</pre>
 
 ### 现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。
 
-<pre>
-function richText(text) {
-    var div = document.createElement('div');
-    div.innerHTML = text;
-    var p = div.getElementsByTagName('p');
-    var i, len;
+    function richText(text) {
+        var div = document.createElement('div');
+        div.innerHTML = text;
+        var p = div.getElementsByTagName('p');
+        var i, len;
 
-    for (i = 0, len = p.length; i &lt; len; ++i) {
-        if (p[i].getElementsByTagName('img').length === 1) {
-            p[i].classList.add('pic');
+        for (i = 0, len = p.length; i &lt; len; ++i) {
+            if (p[i].getElementsByTagName('img').length === 1) {
+                p[i].classList.add('pic');
+            }
         }
+
+        return div.innerHTML;
     }
 
-    return div.innerHTML;
-}
-</pre>
+### 请实现一个Event类，继承自此类的对象都会拥有两个方法on，off，once和trigger
 
-### 请实现一个Event类，继承自此类的对象都会拥有两个方法on和trigger
-<pre>
-</pre>
+
+    function Event() {
+        if (!(this instanceof Event)) {
+            return new Event();
+        }
+        this._callbacks = {};
+    }
+    Event.prototype.on = function (type, handler) {
+        this_callbacks = this._callbacks || {};
+        this._callbacks[type] = this.callbacks[type] || [];
+        this._callbacks[type].push(handler);
+
+        return this;
+    };
+
+    Event.prototype.off = function (type, handler) {
+        var list = this._callbacks[type];
+
+        if (list) {
+            for (var i = list.length; i >= 0; --i) {
+                if (list[i] === handler) {
+                    list.splice(i, 1);
+                }
+            }
+        }
+
+        return this;
+    };
+
+    Event.prototype.trigger = function (type, data) {
+        var list = this._callbacks[type];
+
+        if (list) {
+            for (var i = 0, len = list.length; i < len; ++i) {
+                list[i].call(this, data);
+            }
+        }
+    };
+
+    Event.prototype.once = function (type, handler) {
+        var self = this;
+
+        function wrapper() {
+            handler.apply(self, arguments);
+            self.off(type, wrapper);
+        }
+        this.on(type, wrapper);
+        return this;
+    };
 
 ### 编写一个函数将列表子元素顺序反转
 
@@ -1550,73 +1598,97 @@ define部分定义一个简单的模板类，使用{}作为转义标记，中间
 
 ### 编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）
 
-<pre>
-/**
- * 将一个表单元素序列化为可提交的字符串
- * 
- * @param {FormElement} form 需要序列化的表单元素
- * @return {string} 表单序列化后的字符串
- */
-function serializeForm(form) {
-  if (!form || form.nodeName.toUpperCase() !== 'FORM') {
-    return;
-  }
 
-  var result = [];
+    <form id="target">
+        <select name="age">
+            <option value="aaa">aaa</option>
+            <option value="bbb" selected>bbb</option>
+        </select>
+        <select name="friends" multiple>
+            <option value="qiu" selected>qiu</option>
+            <option value="de">de</option>
+            <option value="qing" selected>qing</option>
+        </select>
+        <input name="name" value="qiudeqing">
+        <input type="password" name="password" value="11111">
+        <input type="hidden" name="salery" value="3333">
+        <textarea name="description">description</textarea>
+        <input type="checkbox" name="hobby" checked value="football">Football
+        <input type="checkbox" name="hobby" value="basketball">Basketball
+        <input type="radio" name="sex" checked value="Female">Female
+        <input type="radio" name="sex" value="Male">Male
+    </form>
 
-  var i, len;
-  var field, fieldName, fieldType;
 
-  for (i = 0, len = form.length; i &lt; len; ++i) {
-    field = form.elements[i];
-    fieldName = field.name;
-    fieldType = field.type;
+    <script>
 
-    if (field.disabled || !fieldName) {
-      continue;
-    } // enf if
+    /**
+     * 将一个表单元素序列化为可提交的字符串
+     * 
+     * @param {FormElement} form 需要序列化的表单元素
+     * @return {string} 表单序列化后的字符串
+     */
+    function serializeForm(form) {
+      if (!form || form.nodeName.toUpperCase() !== 'FORM') {
+        return;
+      }
 
-    switch (fieldType) {
-      case 'text':
-      case 'password':
-      case 'hidden':
-      case 'textarea':
-        result.push(encodeURIComponent(fieldName) + '=' + 
-            encodeURIComponent(field.value));
-        break;
+      var result = [];
 
-      case 'radio':
-      case 'checkbox':
-        if (field.checked) {
-          result.push(encodeURIComponent(fieldName) + '=' + 
-            encodeURIComponent(field.value));
-        }
-        break;
+      var i, len;
+      var field, fieldName, fieldType;
 
-      case 'select-one':
-      case 'select-multiple':
-        for (var j = 0, jLen = field.options.length; j &lt; jLen; ++j) {
-          if (field.options[j].selected) {
+      for (i = 0, len = form.length; i < len; ++i) {
+        field = form.elements[i];
+        fieldName = field.name;
+        fieldType = field.type;
+
+        if (field.disabled || !fieldName) {
+          continue;
+        } // enf if
+
+        switch (fieldType) {
+          case 'text':
+          case 'password':
+          case 'hidden':
+          case 'textarea':
             result.push(encodeURIComponent(fieldName) + '=' + 
-              encodeURIComponent(field.options[j].value || field.options[j].text));
-          }
-        } // end for
-        break;
+                encodeURIComponent(field.value));
+            break;
 
-      case 'file':
-      case 'submit':
-        break; // 是否处理？
+          case 'radio':
+          case 'checkbox':
+            if (field.checked) {
+              result.push(encodeURIComponent(fieldName) + '=' + 
+                encodeURIComponent(field.value));
+            }
+            break;
 
-      default:
-        break;
-    } // end switch
-  } // end for
-    
-    return result.join('&amp;');
-}
-</pre>
+          case 'select-one':
+          case 'select-multiple':
+            for (var j = 0, jLen = field.options.length; j < jLen; ++j) {
+              if (field.options[j].selected) {
+                result.push(encodeURIComponent(fieldName) + '=' + 
+                  encodeURIComponent(field.options[j].value || field.options[j].text));
+              }
+            } // end for
+            break;
 
-<br />
+          case 'file':
+          case 'submit':
+            break; // 是否处理？
+
+          default:
+            break;
+        } // end switch
+      } // end for
+        
+        return result.join('&');
+    }
+
+    var form = document.getElementById('target');
+    console.log(serializeForm(form));
+    </script>
 
 ### 使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器
 
