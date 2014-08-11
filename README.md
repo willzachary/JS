@@ -1041,6 +1041,57 @@ Rect.prototype.area = function () {
 
 ### 编写javascript深度克隆函数deepClone
 
+    function deepClone(obj) {
+        var _toString = Object.prototype.toString;
+
+        // null, undefined, non-object, function
+        if (!obj || typeof obj !== 'object' 
+            || _toString.call(obj) === '[object Function]') {
+            return obj;
+        }
+
+        // DOM Node
+        if (obj.nodeType && 'cloneNode' in obj) {
+            return obj.cloneNode(true);
+        }
+
+        // Date
+        if (_toString.call(obj) === '[object Date]') {
+            return new Date(obj.getTime());
+        }
+
+        // RegExp
+        if (_toString.call(obj) === '[object RegExp]') {
+            return new RegExp(obj.source);
+        }
+
+        var result = Array.isArray(obj) ? [] : 
+            obj.constructor ? new obj.constructor() : {};
+
+        for (var key in obj ) {
+            result[key] = deepClone(obj[key]);
+        }
+
+        return result;
+    }
+
+    function A() {
+        this.a = a;
+    }
+
+    var a = {
+        name: 'qiu',
+        birth: new Date(),
+        pattern: /qiu/,
+        container: document.body,
+        hobbys: ['book', new Date(), /aaa/, 111]
+    };
+
+    var c = new A();
+    var b = deepClone(c);
+    console.log(c.a === b.a);
+    console.log(c, b);
+
 ### 补充代码，鼠标单击Button1后将Button1移动到Button2的后面
     <!doctype html>
     <html>
