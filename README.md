@@ -1116,8 +1116,7 @@ Rect.prototype.area = function () {
         var _toString = Object.prototype.toString;
 
         // null, undefined, non-object, function
-        if (!obj || typeof obj !== 'object' 
-            || _toString.call(obj) === '[object Function]') {
+        if (!obj || typeof obj !== 'object') {
             return obj;
         }
 
