@@ -1132,7 +1132,12 @@ Rect.prototype.area = function () {
 
         // RegExp
         if (_toString.call(obj) === '[object RegExp]') {
-            return new RegExp(obj.source);
+            var flags = [];
+            if (obj.global) { flags.push('g'); }
+            if (obj.multiline) { flags.push('m'); }
+            if (obj.ignoreCase) { flags.push('i'); }
+
+            return new RegExp(obj.source, flags.join(''));
         }
 
         var result = Array.isArray(obj) ? [] : 
@@ -1152,9 +1157,9 @@ Rect.prototype.area = function () {
     var a = {
         name: 'qiu',
         birth: new Date(),
-        pattern: /qiu/,
+        pattern: /qiu/gim,
         container: document.body,
-        hobbys: ['book', new Date(), /aaa/, 111]
+        hobbys: ['book', new Date(), /aaa/gim, 111]
     };
 
     var c = new A();
