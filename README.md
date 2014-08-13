@@ -731,6 +731,29 @@ z轴上的默认层叠顺序如下（从下到上）：
 4. opacity小于1的元素  
 5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
+## 如何水平居中一个元素
+- 如果需要居中的元素为常规流中inline元素，为父元素设置`text-align: center;`即可实现
+- 如果需要居中的元素为常规流中block元素，为元素设置宽度，并设置左右margin为auto。IE6下需在父元素上设置`text-align: center;`  
+
+    <body>
+        <div class="content">
+        aaaaaa aaaaaa a a a a a a a a 
+        </div>
+    </body>
+    body {
+        background: #DDD;
+        text-align: center;
+    }
+    .content {
+        width: 500px;
+        text-align: left;
+        margin: 0 auto;
+
+        background: purple;
+    }
+
+- 
+
 ### 如何竖直居中一个元素  
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
 
