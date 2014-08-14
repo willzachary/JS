@@ -531,7 +531,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 }
 </pre>
 
-- ``ol``内``li``的序号劝慰1，不递增。解决方法：为li设置样式``display: list-item;``
+- ``ol``内``li``的序号全为1，不递增。解决方法：为li设置样式``display: list-item;``
 
 - 未定位父元素``overflow: auto;``，包含``position: relative;``子元素，子元素高于父元素时会溢出。解决办法：1）子元素去掉``position: relative;``; 2）不能为子元素去掉定位时，父元素``position: relative;``
 
@@ -732,27 +732,112 @@ z轴上的默认层叠顺序如下（从下到上）：
 5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
 ## 如何水平居中一个元素
-- 如果需要居中的元素为常规流中inline元素，为父元素设置`text-align: center;`即可实现
-- 如果需要居中的元素为常规流中block元素，为元素设置宽度，并设置左右margin为auto。IE6下需在父元素上设置`text-align: center;`  
+- 如果需要居中的元素为**常规流中inline元素**，为父元素设置`text-align: center;`即可实现
+- 如果需要居中的元素为**常规流中block元素**，1）为元素设置宽度，2）设置左右margin为auto。3）IE6下需在父元素上设置`text-align: center;`,再给子元素恢复需要的值
 
-    <body>
-        <div class="content">
-        aaaaaa aaaaaa a a a a a a a a 
-        </div>
-    </body>
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
     body {
         background: #DDD;
-        text-align: center;
+        text-align: center; /* 3 */
     }
     .content {
-        width: 500px;
-        text-align: left;
-        margin: 0 auto;
+        width: 500px;      /* 1 */
+        text-align: left;  /* 3 */
+        margin: 0 auto;    /* 2 */
 
         background: purple;
     }
+&lt;/style>
+</pre>
 
-- 
+- 如果需要居中的元素为**浮动元素**，1）为元素设置宽度，2）`position: relative;`，3）浮动方向偏移量（left或者right）设置为50%，4）浮动方向上的margin设置为元素宽度一半乘以-1
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+    }
+    .content {
+        width: 500px;         /* 1 */
+        float: left;
+
+        position: relative;   /* 2 */
+        left: 50%;            /* 3 */
+        margin-left: -250px;  /* 4 */
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+- 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）偏移量设置为50%，3）偏移方向外边距设置为元素宽度一半乘以-1
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+        position: relative;
+    }
+    .content {
+        width: 800px;
+
+        position: absolute;
+        left: 50%;
+        margin-left: -400px;
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+- 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）设置左右偏移量都为0,3）设置左右外边距都为auto
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+        position: relative;
+    }
+    .content {
+        width: 800px;
+
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+
+
 
 ### 如何竖直居中一个元素  
 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
