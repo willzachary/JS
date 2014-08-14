@@ -731,8 +731,22 @@ z轴上的默认层叠顺序如下（从下到上）：
 4. opacity小于1的元素  
 5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
-### 如何竖直居中一个元素  
-[盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669)  不同场景有不同的居中方案：
+### 如何竖直居中一个元素
+参考资料：[6 Methods For Vertical Centering With CSS](http://www.vanseodesign.com/css/vertical-centering/)。 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669) 
+
+- 需要居中元素为**单行文本**，为包含文本的元素设置大于`font-size`的`line-height`：
+
+<pre>
+&lt;p class="text">center text&lt;/p>
+
+&lt;style>
+.text {
+    line-height: 200px;
+}
+&lt;/style>
+</pre>
+
+- 
 
 ## $javascript概念部分
 
