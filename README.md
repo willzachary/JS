@@ -1,3 +1,86 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [FE-interview](#fe-interview)
+  - [$HTML， HTTP，web综合问题](#$html，-http，web综合问题)
+    - [前端需要注意哪些SEO](#前端需要注意哪些seo)
+    - [web开发中会话跟踪的方法有哪些](#web开发中会话跟踪的方法有哪些)
+    - [&lt;img>的``title``和``alt``有什么区别](#&ltimg的title和alt有什么区别)
+    - [doctype是什么，举例常见doctype及特点](#doctype是什么，举例常见doctype及特点)
+    - [HTML全局属性(global attribute)有哪些](#html全局属性global-attribute有哪些)
+    - [什么是web语义化，有什么好处](#什么是web语义化，有什么好处)
+    - [HTTP method](#http-method)
+    - [从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)](#从浏览器地址栏输入url到显示页面的步骤以http为例)
+    - [HTTP request报文结构是怎样的](#http-request报文结构是怎样的)
+    - [HTTP response报文结构是怎样的](#http-response报文结构是怎样的)
+    - [如何进行网站性能优化](#如何进行网站性能优化)
+    - [什么是渐进增强](#什么是渐进增强)
+    - [HTTP状态码及其含义](#http状态码及其含义)
+  - [$CSS部分](#$css部分)
+    - [css sprite是什么，有什么优缺点](#css-sprite是什么，有什么优缺点)
+    - [``display: none;``与``visibility: hidden;``的区别](#display-none与visibility-hidden的区别)
+    - [css hack原理及常用hack](#css-hack原理及常用hack)
+- [veinticuatro,  x:-moz-any-link  { color: red }](#veinticuatro--x-moz-any-link---color-red-)
+- [veinticinco,  x:-moz-any-link, x:default  { color: red  }](#veinticinco--x-moz-any-link-xdefault---color-red--)
+- [once { _color: blue }](#once--_color-blue-)
+- [doce { *color: blue; /* or #color: blue */ }](#doce--color-blue--or-#color-blue--)
+- [diecisiete { color/**/: blue }](#diecisiete--color-blue-)
+- [diecinueve { color: blue\9; }](#diecinueve--color-blue\9-)
+- [veinte { color/*\**/: blue\9; }](#veinte--color\-blue\9-)
+- [veintesiete { color: blue !ie; } /* string after ! can be anything */](#veintesiete--color-blue-!ie---string-after-!-can-be-anything-)
+    - [specified value,computed value，used value计算方法](#specified-valuecomputed-value，used-value计算方法)
+    - [``link``与``@import``的区别](#link与@import的区别)
+    - [``display: block;``和``display: inline;``的区别](#display-block和display-inline的区别)
+    - [PNG, GIF, JPG的区别及如何选](#png-gif-jpg的区别及如何选)
+    - [CSS有哪些继承属性](#css有哪些继承属性)
+    - [IE6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决](#ie6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决)
+    - [容器包含若干浮动元素时如何清理(包含)浮动](#容器包含若干浮动元素时如何清理包含浮动)
+    - [什么是FOUC？如何避免？](#什么是fouc？如何避免？)
+    - [如何创建块级格式化上下文（block formatting context）？有什么用](#如何创建块级格式化上下文（block-formatting-context）？有什么用)
+    - [display, float, position的关系](#display-float-position的关系)
+    - [外边距折叠（collapsing margins)](#外边距折叠（collapsing-margins)
+    - [如何确定一个元素的包含块（containing block)](#如何确定一个元素的包含块（containing-block)
+    - [stacking context，布局规则](#stacking-context，布局规则)
+  - [如何水平居中一个元素](#如何水平居中一个元素)
+    - [如何竖直居中一个元素](#如何竖直居中一个元素)
+  - [$javascript概念部分](#$javascript概念部分)
+    - [focus/blur与focusin/focusout的区别与联系](#focusblur与focusinfocusout的区别与联系)
+    - [mouseover/mouseout与mouseenter/mouseleave的区别与联系](#mouseovermouseout与mouseentermouseleave的区别与联系)
+    - [sessionStorage, localStorage, cookie区别](#sessionstorage-localstorage-cookie区别)
+    - [javascript跨域通信](#javascript跨域通信)
+    - [javascript有哪几种数据类型](#javascript有哪几种数据类型)
+    - [什么闭包，闭包有什么用](#什么闭包，闭包有什么用)
+    - [javascript有哪几种方法定义函数](#javascript有哪几种方法定义函数)
+    - [应用程序存储和离线web应用](#应用程序存储和离线web应用)
+    - [对象到数字的转换步骤](#对象到数字的转换步骤)
+    - [&lt;,&gt;,&lt;=,&gt;=的比较规则](#&lt&gt&lt=&gt=的比较规则)
+    - [+运算符工作流程](#运算符工作流程)
+    - [函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组](#函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组)
+    - [DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容](#dom事件模型是如何的，编写一个eventutil工具类实现事件管理兼容)
+    - [评价一下三种方法实现继承的优缺点，并改进](#评价一下三种方法实现继承的优缺点，并改进)
+  - [$javascript编程部分](#$javascript编程部分)
+    - [完成下面的tool-tip](#完成下面的tool-tip)
+    - [编写javascript深度克隆函数deepClone](#编写javascript深度克隆函数deepclone)
+    - [补充代码，鼠标单击Button1后将Button1移动到Button2的后面](#补充代码，鼠标单击button1后将button1移动到button2的后面)
+    - [网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”](#网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”)
+    - [完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组](#完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组)
+    - [如何判断一个对象是否为数组](#如何判断一个对象是否为数组)
+    - [请评价以下代码并给出改进意见](#请评价以下代码并给出改进意见)
+    - [如何判断一个对象是否为函数](#如何判断一个对象是否为函数)
+    - [编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码](#编写一个函数接受url中query-string为参数，返回解析后的object，query-string使用applicationx-www-form-urlencoded编码)
+    - [解析一个完整的url，返回Object包含域与window.location相同](#解析一个完整的url，返回object包含域与windowlocation相同)
+    - [完成函数getScrollOffset返回窗口滚动条偏移量](#完成函数getscrolloffset返回窗口滚动条偏移量)
+    - [现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。](#现有一个字符串richtext，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jquery或kissy。)
+    - [请实现一个Event类，继承自此类的对象都会拥有两个方法on，off，once和trigger](#请实现一个event类，继承自此类的对象都会拥有两个方法on，off，once和trigger)
+    - [编写一个函数将列表子元素顺序反转](#编写一个函数将列表子元素顺序反转)
+    - [以下函数的作用是？空白区域应该填写什么](#以下函数的作用是？空白区域应该填写什么)
+    - [编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）](#编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）)
+    - [使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器](#使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个object对象，兼容ie和标准浏览器)
+    - [有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重](#有一个大数组，var-a-=-1-2-3--a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # FE-interview
 
 个人收集的前端知识点、面试题和答案，参考答案仅代表个人观点，方便复习，目录如下，通过文档内搜索目录可快速定位章节  
@@ -349,6 +432,7 @@ Content-Type: text/html; charset=iso-8859-1
 
 - IE条件注释：适用于[IE5, IE9]常见格式如下
 
+
 <pre>
 &lt;!--[if IE 6]>
 Special instructions for IE 6 here
@@ -531,7 +615,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 }
 </pre>
 
-- ``ol``内``li``的序号劝慰1，不递增。解决方法：为li设置样式``display: list-item;``
+- ``ol``内``li``的序号全为1，不递增。解决方法：为li设置样式``display: list-item;``
 
 - 未定位父元素``overflow: auto;``，包含``position: relative;``子元素，子元素高于父元素时会溢出。解决办法：1）子元素去掉``position: relative;``; 2）不能为子元素去掉定位时，父元素``position: relative;``
 
@@ -731,6 +815,113 @@ z轴上的默认层叠顺序如下（从下到上）：
 4. opacity小于1的元素  
 5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
+## 如何水平居中一个元素
+- 如果需要居中的元素为**常规流中inline元素**，为父元素设置`text-align: center;`即可实现
+- 如果需要居中的元素为**常规流中block元素**，1）为元素设置宽度，2）设置左右margin为auto。3）IE6下需在父元素上设置`text-align: center;`,再给子元素恢复需要的值
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+        text-align: center; /* 3 */
+    }
+    .content {
+        width: 500px;      /* 1 */
+        text-align: left;  /* 3 */
+        margin: 0 auto;    /* 2 */
+
+        background: purple;
+    }
+&lt;/style>
+</pre>
+
+- 如果需要居中的元素为**浮动元素**，1）为元素设置宽度，2）`position: relative;`，3）浮动方向偏移量（left或者right）设置为50%，4）浮动方向上的margin设置为元素宽度一半乘以-1
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+    }
+    .content {
+        width: 500px;         /* 1 */
+        float: left;
+
+        position: relative;   /* 2 */
+        left: 50%;            /* 3 */
+        margin-left: -250px;  /* 4 */
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+- 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）偏移量设置为50%，3）偏移方向外边距设置为元素宽度一半乘以-1
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+        position: relative;
+    }
+    .content {
+        width: 800px;
+
+        position: absolute;
+        left: 50%;
+        margin-left: -400px;
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+- 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）设置左右偏移量都为0,3）设置左右外边距都为auto
+
+<pre>
+&lt;body>
+    &lt;div class="content">
+    aaaaaa aaaaaa a a a a a a a a 
+    &lt;/div>
+&lt;/body>
+
+&lt;style>
+    body {
+        background: #DDD;
+        position: relative;
+    }
+    .content {
+        width: 800px;
+
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        
+        background-color: purple;
+    }
+&lt;/style>
+</pre>
+
+
+
 ### 如何竖直居中一个元素
 参考资料：[6 Methods For Vertical Centering With CSS](http://www.vanseodesign.com/css/vertical-centering/)。 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669) 
 
@@ -747,6 +938,9 @@ z轴上的默认层叠顺序如下（从下到上）：
 </pre>
 
 - 
+
+
+
 
 ## $javascript概念部分
 
@@ -1866,7 +2060,7 @@ EventUtil.on(nav, 'click', function (event) {
 
 ### 有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重
 
-<pre>
+```
     /**
     * 数组去重
     **/
@@ -1912,4 +2106,4 @@ EventUtil.on(nav, 'click', function (event) {
 
     normalize(input);
     console.log(input);
-</pre>
+```
