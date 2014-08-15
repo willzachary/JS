@@ -6,7 +6,7 @@
   - [$HTML， HTTP，web综合问题](#$html，-http，web综合问题)
     - [前端需要注意哪些SEO](#前端需要注意哪些seo)
     - [web开发中会话跟踪的方法有哪些](#web开发中会话跟踪的方法有哪些)
-    - [<img>的`title`和`alt`有什么区别](#img的title和alt有什么区别)
+    - [`<img>`的`title`和`alt`有什么区别](#img的title和alt有什么区别)
     - [doctype是什么，举例常见doctype及特点](#doctype是什么，举例常见doctype及特点)
     - [HTML全局属性(global attribute)有哪些](#html全局属性global-attribute有哪些)
     - [什么是web语义化，有什么好处](#什么是web语义化，有什么好处)
@@ -18,6 +18,7 @@
     - [什么是渐进增强](#什么是渐进增强)
     - [HTTP状态码及其含义](#http状态码及其含义)
   - [$CSS部分](#$css部分)
+    - [CSS选择器有哪些](#css选择器有哪些)
     - [css sprite是什么，有什么优缺点](#css-sprite是什么，有什么优缺点)
     - [`display: none;`与`visibility: hidden;`的区别](#display-none与visibility-hidden的区别)
     - [css hack原理及常用hack](#css-hack原理及常用hack)
@@ -97,7 +98,7 @@
 4. 隐藏input
 5. ip地址
 
-### <img>的`title`和`alt`有什么区别
+### `<img>`的`title`和`alt`有什么区别
 
 1. `title`是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
 2. `alt`是`<img>`的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
@@ -388,6 +389,29 @@ Content-Type: text/html; charset=iso-8859-1
     - **505 HTTP Version Not Supported**:
 
 ## $CSS部分
+
+### CSS选择器有哪些
+
+1. ***通用选择器**：选择所有元素，**不参与计算优先级**，兼容性IE6+
+2. **#X id选择器**：选择id值为X的元素，兼容性：IE6+
+3. **.X 类选择器**： 选择class包含X的元素，兼容性：IE6+
+4. **X Y后代选择器**： 选择满足X选择器的后代节点中满足Y选择器的元素，兼容性：IE6+
+5. **X 元素选择器**： 选择标所有签为X的元素，兼容性：IE6+
+6. **:link，：visited，：focus，：hover，：active链接状态**： 选择特定状态的链接元素，顺序LoVe HAte，兼容性: IE4+
+7. **X + Y直接兄弟选择器**：在**X之后第一个兄弟节点**中选择满足Y选择器的元素，兼容性： IE7+
+8. **X > Y子选择器**： 选择X的子元素中满足Y选择器的元素，兼容性： IE7+
+9. **X ~ Y兄弟**： 选择**X之后所有兄弟节点**中满足Y选择器的元素，兼容性： IE7+
+10. **[attr]**：选择所有设置了attr属性的元素，兼容性IE7+
+11. **[attr=value]**：选择属性值刚好为value的元素
+12. **[attr~=value]**：选择属性值为空白符分隔，其中一个的值刚好是value的元素
+13. **[attr|=value]**：选择属性值刚好为value或者value-开头的元素
+14. **[attr^=value]**：选择属性值以value开头的元素
+15. **[attr$=value]**：选择属性值以value结尾的元素
+16. **[attr*=value]**：选择属性值中包含value的元素
+17. **[:checked]**：选择单选框，复选框，下拉框中选中状态下的元素，兼容性：IE9+
+18. **X:after, X::after**：after伪元素，选择元素虚拟子元素（元素的最后一个子元素），CSS3中::表示伪元素。兼容性:after为IE8+，::after为IE9+
+18. **:hover**：鼠标移入状态的元素，兼容性a标签IE4+， 所有元素IE7+
+19. **:not(selector)**：选择不符合selector的元素。**不参与计算优先级**，兼容性：IE9+
 
 ### css sprite是什么，有什么优缺点
 
