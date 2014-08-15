@@ -6,7 +6,7 @@
   - [$HTML， HTTP，web综合问题](#$html，-http，web综合问题)
     - [前端需要注意哪些SEO](#前端需要注意哪些seo)
     - [web开发中会话跟踪的方法有哪些](#web开发中会话跟踪的方法有哪些)
-    - [&lt;img>的``title``和``alt``有什么区别](#&ltimg的title和alt有什么区别)
+    - [<img>的`title`和`alt`有什么区别](#img的title和alt有什么区别)
     - [doctype是什么，举例常见doctype及特点](#doctype是什么，举例常见doctype及特点)
     - [HTML全局属性(global attribute)有哪些](#html全局属性global-attribute有哪些)
     - [什么是web语义化，有什么好处](#什么是web语义化，有什么好处)
@@ -19,18 +19,10 @@
     - [HTTP状态码及其含义](#http状态码及其含义)
   - [$CSS部分](#$css部分)
     - [css sprite是什么，有什么优缺点](#css-sprite是什么，有什么优缺点)
-    - [``display: none;``与``visibility: hidden;``的区别](#display-none与visibility-hidden的区别)
+    - [`display: none;`与`visibility: hidden;`的区别](#display-none与visibility-hidden的区别)
     - [css hack原理及常用hack](#css-hack原理及常用hack)
-- [veinticuatro,  x:-moz-any-link  { color: red }](#veinticuatro--x-moz-any-link---color-red-)
-- [veinticinco,  x:-moz-any-link, x:default  { color: red  }](#veinticinco--x-moz-any-link-xdefault---color-red--)
-- [once { _color: blue }](#once--_color-blue-)
-- [doce { *color: blue; /* or #color: blue */ }](#doce--color-blue--or-#color-blue--)
-- [diecisiete { color/**/: blue }](#diecisiete--color-blue-)
-- [diecinueve { color: blue\9; }](#diecinueve--color-blue\9-)
-- [veinte { color/*\**/: blue\9; }](#veinte--color\-blue\9-)
-- [veintesiete { color: blue !ie; } /* string after ! can be anything */](#veintesiete--color-blue-!ie---string-after-!-can-be-anything-)
     - [specified value,computed value，used value计算方法](#specified-valuecomputed-value，used-value计算方法)
-    - [``link``与``@import``的区别](#link与@import的区别)
+    - [`link`与`@import`的区别](#link与@import的区别)
     - [``display: block;``和``display: inline;``的区别](#display-block和display-inline的区别)
     - [PNG, GIF, JPG的区别及如何选](#png-gif-jpg的区别及如何选)
     - [CSS有哪些继承属性](#css有哪些继承属性)
@@ -54,7 +46,7 @@
     - [javascript有哪几种方法定义函数](#javascript有哪几种方法定义函数)
     - [应用程序存储和离线web应用](#应用程序存储和离线web应用)
     - [对象到数字的转换步骤](#对象到数字的转换步骤)
-    - [&lt;,&gt;,&lt;=,&gt;=的比较规则](#&lt&gt&lt=&gt=的比较规则)
+    - [<,>,<=,>=的比较规则](#==的比较规则)
     - [+运算符工作流程](#运算符工作流程)
     - [函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组](#函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组)
     - [DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容](#dom事件模型是如何的，编写一个eventutil工具类实现事件管理兼容)
@@ -66,7 +58,7 @@
     - [网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”](#网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”)
     - [完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组](#完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组)
     - [如何判断一个对象是否为数组](#如何判断一个对象是否为数组)
-    - [请评价以下代码并给出改进意见](#请评价以下代码并给出改进意见)
+    - [请评价以下事件监听器代码并给出改进意见](#请评价以下事件监听器代码并给出改进意见)
     - [如何判断一个对象是否为函数](#如何判断一个对象是否为函数)
     - [编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码](#编写一个函数接受url中query-string为参数，返回解析后的object，query-string使用applicationx-www-form-urlencoded编码)
     - [解析一个完整的url，返回Object包含域与window.location相同](#解析一个完整的url，返回object包含域与windowlocation相同)
@@ -84,11 +76,6 @@
 # FE-interview
 
 个人收集的前端知识点、面试题和答案，参考答案仅代表个人观点，方便复习，目录如下，通过文档内搜索目录可快速定位章节  
-
-1. $HTML, HTTP, web综合问题  
-2. $CSS部分  
-3. $javascript概念部分
-4. $javascript编程部分
 
 ## $HTML， HTTP，web综合问题
 
@@ -110,33 +97,34 @@
 4. 隐藏input
 5. ip地址
 
-### &lt;img>的``title``和``alt``有什么区别
+### <img>的`title`和`alt`有什么区别
 
-- ``title``是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
-- ``alt``是``<img>``的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
+1. `title`是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
+2. `alt`是`<img>`的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
 
 ### doctype是什么，举例常见doctype及特点
 
-1. ``<!doctype>``声明必须处于HTML文档的头部，在``<html>``标签之前，HTML5中不区分大小写
-2. ``<!doctype>``声明不是一个HTML标签，是一个用于告诉浏览器当前HTMl版本的指令
+1. `<!doctype>`声明必须处于HTML文档的头部，在`<html>`标签之前，HTML5中不区分大小写
+2. `<!doctype>`声明不是一个HTML标签，是一个用于告诉浏览器当前HTMl版本的指令
 3. 现代浏览器的html布局引擎通过检查doctype决定使用兼容模式还是标准模式对文档进行渲染，一些浏览器有一个接近标准模型。
-3. 在HTML4.01中``<!doctype>``声明指向一个DTD，由于HTML4.01基于SGML，所以DTD指定了标记规则以保证浏览器正确渲染内容
+3. 在HTML4.01中`<!doctype>`声明指向一个DTD，由于HTML4.01基于SGML，所以DTD指定了标记规则以保证浏览器正确渲染内容
 4. HTML5不基于SGML，所以不用指定DTD
 
 常见dotype：  
 
-1. **HTML4.01 strict**：不允许使用表现性、废弃元素（如font）以及frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">``
-2. **HTML4.01 Transitional**:允许使用表现性、废弃元素（如font），不允许使用frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">``
-3. **HTML4.01 Frameset**:允许表现性元素，废气元素以及frameset。声明：``<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">``
+1. **HTML4.01 strict**：不允许使用表现性、废弃元素（如font）以及frameset。声明：`<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`
+2. **HTML4.01 Transitional**:允许使用表现性、废弃元素（如font），不允许使用frameset。声明：`<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">`
+3. **HTML4.01 Frameset**:允许表现性元素，废气元素以及frameset。声明：`<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">`
 4. **XHTML1.0 Strict**:不使用允许表现性、废弃元素以及frameset。文档必须是结构良好的XML文档。声明：``<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">``
 5. **XHTML1.0 Transitional**:允许使用表现性、废弃元素，不允许frameset，文档必须是结构良好的XMl文档。声明： ``<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">``
 6. **XHTML 1.0 Frameset**:允许使用表现性、废弃元素以及frameset，文档必须是结构良好的XML文档。声明：``<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">``
-7. **HTML 5**: ``<!doctype html>``
+7. **HTML 5**: `<!doctype html>`
 
-### HTML全局属性(global attribute)有哪些  
+### HTML全局属性(global attribute)有哪些
+
 参考资料：[MDN: html global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)或者[W3C HTML global-attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)
 
-- `accesskey`:设置快捷键，提供快速访问元素如&lt;a href="#" accesskey="a">aaa&lt;/a>在windows下的firefox中按``alt + shift + a``可激活元素
+- `accesskey`:设置快捷键，提供快速访问元素如<a href="#" accesskey="a">aaa</a>在windows下的firefox中按``alt + shift + a``可激活元素
 - `class`:为元素设置类标识，多个类名用空格分开，CSS和javascript可通过class属性获取元素
 - `contenteditable`: 指定元素内容是否可编辑
 - `contextmenu`: 自定义鼠标右键弹出菜单内容
@@ -154,6 +142,7 @@
 - `translate`: 元素和子孙节点内容是否需要本地化
 
 ### 什么是web语义化，有什么好处
+
 web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。  
 HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构  
 css命名的语义化是指：为html标签添加有意义的class，id补充未表达的语义，如[Microformat](http://en.wikipedia.org/wiki/Microformats)通过添加符合规则的class描述信息  
@@ -181,7 +170,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 2. 浏览器查看**缓存**，如果请求资源在缓存中并且新鲜，跳转到转码步骤
     1. 如果资源未缓存，发起新请求
     2. 如果已缓存，检验是否足够新鲜，足够新鲜直接提供给客户端，否则与服务器进行验证。
-    3. 检验新鲜通常有两个HTTP头进行控制``Expires``和``Cache-Control``：
+    3. 检验新鲜通常有两个HTTP头进行控制`Expires`和`Cache-Control`：
         - HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期
         - HTTP1.1增加了Cache-Control: max-age=,值为以秒为单位的最大新鲜时间
 3. 浏览器**解析URL**获取协议，主机，端口，path
@@ -199,7 +188,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
     3. 客户端发送**ACK=Y+1， Seq=Z**
 7. TCP链接建立后**发送HTTP请求**
 8. 服务器接受请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序
-9. 服务器检查**HTTP请求头是否包含缓存验证信息**如果验证缓存新鲜，返回**304**等对应状态吗
+9. 服务器检查**HTTP请求头是否包含缓存验证信息**如果验证缓存新鲜，返回**304**等对应状态码
 10. 处理程序读取完整请求并准备HTTP响应，可能需要查询数据库等操作
 11. 服务器将**响应报文通过TCP连接发送回浏览器**
 12. 浏览器接收HTTP响应，然后根据情况选择**关闭TCP连接或者保留重用，关闭TCP连接的四次握手如下**：
@@ -222,9 +211,9 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
     2. **Node**：根据标记创建节点
     3. **CSSOM**：节点创建CSSOM树
 21. **[根据DOM树和CSSOM树构建渲染树](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction)**:
-    1. 从DOM树的根节点遍历所有**可见节点**，不可见节点包括：1）``script``,``meta``这样本身不可见的标签。2)被css隐藏的节点，如``display: none``
+    1. 从DOM树的根节点遍历所有**可见节点**，不可见节点包括：1）`script`,`meta`这样本身不可见的标签。2)被css隐藏的节点，如`display: none`
     2. 对每一个可见节点，找到恰当的CSSOM规则并应用
-    3. 发布可是节点的内容和计算样式
+    3. 发布可视节点的内容和计算样式
 22. **js解析如下**：
     1. 浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时**document.readystate为loading**
     2. HTML解析器遇到**没有async和defer的script时**，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。**同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容**
@@ -244,7 +233,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 4. 根据实际请求需要可能包含一个**消息实体**  
 一个请求报文例子如下：
 
-<pre>
+```
 GET /Protocols/rfc2616/rfc2616-sec5.html HTTP/1.1
 Host: www.w3.org
 Connection: keep-alive
@@ -259,9 +248,10 @@ If-None-Match: "2cc8-3e3073913b100"
 If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
 
 name=qiu&age=25
-</pre>
+```
 
 ### HTTP response报文结构是怎样的
+
 [rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：  
 
 1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF  
@@ -270,7 +260,7 @@ name=qiu&age=25
 4. 最后是一个可能的**消息实体**  
 响应报文例子如下：  
 
-<pre>
+```
 HTTP/1.1 200 OK
 Date: Tue, 08 Jul 2014 05:28:43 GMT
 Server: Apache/2
@@ -284,9 +274,10 @@ P3P: policyref="http://www.w3.org/2001/05/P3P/p3p.xml"
 Content-Type: text/html; charset=iso-8859-1
 
 {"name": "qiu", "age": 25}
-</pre>
+```
 
 ### 如何进行网站性能优化
+
 [雅虎Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html)：  
 
 - content方面  
@@ -334,7 +325,8 @@ Content-Type: text/html; charset=iso-8859-1
     2. Pack Components into a Multipart Document
 
 
-### 什么是渐进增强  
+### 什么是渐进增强
+
 渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:  
 
 - 所有浏览器都必须能访问基本内容
@@ -344,7 +336,8 @@ Content-Type: text/html; charset=iso-8859-1
 - 通过非侵入式、外部javascript提供增强功能
 - end-user web browser preferences are respected
 
-### HTTP状态码及其含义  
+### HTTP状态码及其含义
+
 参考[RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 
 - 1XX：信息状态码
@@ -394,15 +387,10 @@ Content-Type: text/html; charset=iso-8859-1
     - **504 Gateway Timeout**:
     - **505 HTTP Version Not Supported**:
 
-
-
-
-
-
-
 ## $CSS部分
 
 ### css sprite是什么，有什么优缺点
+
 概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。  
 
 优点：
@@ -417,7 +405,7 @@ Content-Type: text/html; charset=iso-8859-1
 2. 维护麻烦，修改一个图片可能需要从新布局整个图片，样式
 
 
-### ``display: none;``与``visibility: hidden;``的区别
+### `display: none;`与`visibility: hidden;`的区别
 联系：它们都能让元素不可见
 
 区别：
@@ -428,20 +416,20 @@ Content-Type: text/html; charset=iso-8859-1
 4. 读屏器不会读取display: none;元素内容；会读取visibility: hidden;元素内容
 
 ### css hack原理及常用hack
+
 原理：利用**不同浏览器对CSS的支持和解析结果不一样**编写针对特定浏览器样式。常见的hack有1）属性hack。2）选择器hack。3）IE条件注释  
 
 - IE条件注释：适用于[IE5, IE9]常见格式如下
 
-
-<pre>
-&lt;!--[if IE 6]>
+```
+<!--[if IE 6]>
 Special instructions for IE 6 here
-&lt;![endif]-->
-</pre>
+<![endif]-->
+```
 
 - 选择器hack：不同浏览器对选择器的支持不一样
 
-<pre>
+```
 /***** Selector Hacks ******/
 
 /* IE6 and below */
@@ -495,12 +483,11 @@ html[xmlns*=""]:root #trece  { color: red  }
  
 /* Firefox 3.0+ */
 #veinticinco,  x:-moz-any-link, x:default  { color: red  }
-</pre>
+```
 
 - 属性hack：不同浏览器解析bug或方法
 
-<pre>
- 
+```
 /* IE6 */
 #once { _color: blue }
  
@@ -518,8 +505,7 @@ html[xmlns*=""]:root #trece  { color: red  }
  
 /* IE6, IE7 -- acts as an !important */
 #veintesiete { color: blue !ie; } /* string after ! can be anything */
-</pre>
-
+```
 
 ### specified value,computed value，used value计算方法
 
@@ -539,8 +525,7 @@ html[xmlns*=""]:root #trece  { color: red  }
     - padding-bottom, padding-left, padding-right, padding-top
     - text-indent
 
-
-### ``link``与``@import``的区别
+### `link`与`@import`的区别
 
 1. ``link``是HTML方式， ``@import``是CSS方式
 2. ``link``最大限度支持并行下载，``@import``过多嵌套导致串行下载，出现[FOUC](http://www.bluerobot.com/web/css/fouc.asp/)
@@ -598,7 +583,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 
 ### CSS有哪些继承属性
 
-- 关于文字排版的属性如：`font`, `word-break`, `letter-spacing`,`text-align`,`tex--rendering`,`word-spacing`,`white-spacing`,`text-indent`,`text-transform`,`text-shadow`
+- 关于文字排版的属性如：`font`, `word-break`, `letter-spacing`,`text-align`,`text-rendering`,`word-spacing`,`white-spacing`,`text-indent`,`text-transform`,`text-shadow`
 - `line-height`
 - `color`
 - `visibility`
@@ -607,20 +592,20 @@ html[xmlns*=""]:root #trece  { color: red  }
 
 - IE6不支持min-height，解决办法使用css hack：
 
-<pre>
+```
 .target {
     min-height: 100px;
     height: auto !important;
     height: 100px;   // IE6下内容高度超过会自动扩展高度
 }
-</pre>
+```
 
 - ``ol``内``li``的序号全为1，不递增。解决方法：为li设置样式``display: list-item;``
 
 - 未定位父元素``overflow: auto;``，包含``position: relative;``子元素，子元素高于父元素时会溢出。解决办法：1）子元素去掉``position: relative;``; 2）不能为子元素去掉定位时，父元素``position: relative;``
 
-<pre>
-&lt;style type="text/css">
+```
+<style type="text/css">
 .outer {
     width: 215px;
     height: 100px;
@@ -634,26 +619,26 @@ html[xmlns*=""]:root #trece  { color: red  }
     background-color: purple;
     position: relative;
 }
-&lt;/style>
+</style>
 
-&lt;div class="outer">
-    &lt;div class="inner">&lt;/div>
-&lt;/div>
-</pre>
+<div class="outer">
+    <div class="inner"></div>
+</div>
+```
 
 - IE6只支持``a``标签的``:hover``伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，添加类实现效果：
 
-<pre>
-&lt;style type="text/css">
+```
+<style type="text/css">
 .p:hover,
 .hover {
     background: purple;
 }
-&lt;/style>
+</style>
 
-&lt;p class="p" id="target">aaaa bbbbb&lt;span>DDDDDDDDDDDd&lt;/span> aaaa lkjlkjdf j&lt;/p>
+<p class="p" id="target">aaaa bbbbb<span>DDDDDDDDDDDd</span> aaaa lkjlkjdf j</p>
 
-&lt;script type="text/javascript">
+<script type="text/javascript">
 function addClass(elem, cls) {
     if (elem.className) {
         elem.className += ' ' + cls;
@@ -676,30 +661,30 @@ if (target.attachEvent) {
         removeClass(target, 'hover');
     })
 }
-&lt;/script>
-</pre>
+</script>
+```
 
 - IE5-8不支持``opacity``，解决办法：
 
-<pre>
+```
 .opacity {
     opacity: 0.4
     filter: alpha(opacity=60); /* for IE5-7 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* for IE 8*/
 }
-</pre>
+```
 
 - IE6在设置``height``小于``font-size``时高度值为``font-size``，解决办法：``font-size: 0;``
 - IE6不支持PNG透明背景，解决办法: **IE6下使用gif图片**
 - IE6-7不支持``display: inline-block``解决办法：设置inline并触发hasLayout
 
-<pre>
+```
     display: inline-block;
     *display: inline;
     *zoom: 1;
-</pre>
+```
 
-- IE6下浮动元素在浮动方向上的外边距会加倍。解决办法：  
+- IE6下浮动元素在浮动方向上与父元素边界接触元素的外边距会加倍。解决办法：  
 1）使用padding控制间距。  
 2）浮动元素``display: inline;``这样解决问题且无任何副作用：css标准规定浮动元素display:inline会自动调整为block
 - 通过为块级元素设置宽度和左右margin为auto时，IE6不能实现水平居中，解决方法：为父元素设置``text-align: center;``
@@ -710,7 +695,7 @@ if (target.attachEvent) {
 2. 父元素触发块级格式化上下文(见块级可视化上下文部分)
 3. 设置容器元素伪元素进行清理[推荐的清理浮动方法](http://nicolasgallagher.com/micro-clearfix-hack/)  
 
-<pre>
+```
 /**
 * 在标准浏览器下使用
 * 1 content内容为空格用于修复opera下文档中出现
@@ -737,14 +722,10 @@ if (target.attachEvent) {
 .clearfix {
     *zoom: 1;
 }
-</pre>
-
-
+```
 
 ### 什么是FOUC？如何避免？  
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。**解决方法**：把样式表放到文档的`head` 
-
-
 
 ### 如何创建块级格式化上下文（block formatting context）？有什么用
 创建规则：  
@@ -772,9 +753,6 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 总结起来：**绝对定位、浮动、根元素都需要调整``display``**
 ![display转换规则](img/display-adjust.png)
 
-
-
-
 ### 外边距折叠（collapsing margins)  
 毗邻的两个或多个``margin``会合并成一个margin，叫做外边距折叠。规则如下：  
 
@@ -782,9 +760,6 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 2. 浮动元素/inline-block元素/绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠
 3. 创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
 4. 元素自身的margin-bottom和margin-top相邻时也会折叠
-
-
-
 
 ### 如何确定一个元素的包含块（containing block)
 
@@ -795,9 +770,6 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
     - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
     - 其他情况下包含块由祖先节点的**padding edge**组成  
 
-
-
-
 ### stacking context，布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
 
@@ -805,7 +777,6 @@ z轴上的默认层叠顺序如下（从下到上）：
 2. 常规流中的元素按照html中顺序  
 3. 浮动块  
 4. positioned元素按照html中出现顺序  
-
 
 如何创建stacking context：  
 
@@ -819,14 +790,14 @@ z轴上的默认层叠顺序如下（从下到上）：
 - 如果需要居中的元素为**常规流中inline元素**，为父元素设置`text-align: center;`即可实现
 - 如果需要居中的元素为**常规流中block元素**，1）为元素设置宽度，2）设置左右margin为auto。3）IE6下需在父元素上设置`text-align: center;`,再给子元素恢复需要的值
 
-<pre>
-&lt;body>
-    &lt;div class="content">
+```
+<body>
+    <div class="content">
     aaaaaa aaaaaa a a a a a a a a 
-    &lt;/div>
-&lt;/body>
+    </div>
+</body>
 
-&lt;style>
+<style>
     body {
         background: #DDD;
         text-align: center; /* 3 */
@@ -838,19 +809,19 @@ z轴上的默认层叠顺序如下（从下到上）：
 
         background: purple;
     }
-&lt;/style>
-</pre>
+</style>
+```
 
 - 如果需要居中的元素为**浮动元素**，1）为元素设置宽度，2）`position: relative;`，3）浮动方向偏移量（left或者right）设置为50%，4）浮动方向上的margin设置为元素宽度一半乘以-1
 
-<pre>
-&lt;body>
-    &lt;div class="content">
+```
+<body>
+    <div class="content">
     aaaaaa aaaaaa a a a a a a a a 
-    &lt;/div>
-&lt;/body>
+    </div>
+</body>
 
-&lt;style>
+<style>
     body {
         background: #DDD;
     }
@@ -864,19 +835,19 @@ z轴上的默认层叠顺序如下（从下到上）：
         
         background-color: purple;
     }
-&lt;/style>
-</pre>
+</style>
+```
 
 - 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）偏移量设置为50%，3）偏移方向外边距设置为元素宽度一半乘以-1
 
-<pre>
-&lt;body>
-    &lt;div class="content">
+```
+<body>
+    <div class="content">
     aaaaaa aaaaaa a a a a a a a a 
-    &lt;/div>
-&lt;/body>
+    </div>
+</body>
 
-&lt;style>
+<style>
     body {
         background: #DDD;
         position: relative;
@@ -890,19 +861,19 @@ z轴上的默认层叠顺序如下（从下到上）：
         
         background-color: purple;
     }
-&lt;/style>
-</pre>
+</style>
+```
 
 - 如果需要居中的元素为**绝对定位元素**，1）为元素设置宽度，2）设置左右偏移量都为0,3）设置左右外边距都为auto
 
-<pre>
-&lt;body>
-    &lt;div class="content">
+```
+<body>
+    <div class="content">
     aaaaaa aaaaaa a a a a a a a a 
-    &lt;/div>
-&lt;/body>
+    </div>
+</body>
 
-&lt;style>
+<style>
     body {
         background: #DDD;
         position: relative;
@@ -917,29 +888,25 @@ z轴上的默认层叠顺序如下（从下到上）：
         
         background-color: purple;
     }
-&lt;/style>
-</pre>
-
-
+</style>
+```
 
 ### 如何竖直居中一个元素
 参考资料：[6 Methods For Vertical Centering With CSS](http://www.vanseodesign.com/css/vertical-centering/)。 [盘点8种CSS实现垂直居中](http://blog.csdn.net/freshlover/article/details/11579669) 
 
 - 需要居中元素为**单行文本**，为包含文本的元素设置大于`font-size`的`line-height`：
 
-<pre>
-&lt;p class="text">center text&lt;/p>
+```
+<p class="text">center text</p>
 
-&lt;style>
+<style>
 .text {
     line-height: 200px;
 }
-&lt;/style>
-</pre>
+</style>
+```
 
 - 
-
-
 
 
 ## $javascript概念部分
@@ -1040,10 +1007,10 @@ z轴上的默认层叠顺序如下（从下到上）：
 - Object
 
 ### 什么闭包，闭包有什么用
-**闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量**。闭包作用域域链通常包括三个部分：
+**闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量**。闭包作用域链通常包括三个部分：
 
 1. 函数本身作用域。
-2. 包含闭包的函数的作用域。
+2. 闭包定义时的作用域。
 3. 全局作用域。
 
 闭包常见用途：
@@ -1066,7 +1033,7 @@ HTML5新增应用程序缓存，允许web应用将应用程序自身保存到用
 2.manifest文件首行为``CACHE MANIFEST``，其余就是要缓存的URL列表，每个一行，相对路径都相对于manifest文件的url。注释以#开头  
 3.url分为三种类型：``CACHE``:为默认类型。``NETWORK``：表示资源从不缓存。 ``FALLBACK``:每行包含两个url，第二个URL是指需要加载和存储在缓存中的资源， 第一个URL是一个前缀。任何匹配该前缀的URL都不会缓存，如果从网络中载入这样的URL失败的话，就会用第二个URL指定的缓存资源来替代。以下是一个文件例子：
 
-<pre>
+```
 CACHE MANIFEST
 
 CACHE:
@@ -1079,7 +1046,7 @@ videos/ offline_help.html
 
 NETWORK:
 cgi/
-</pre>
+```
 
 - **客户端存储localStorage和sessionStorage**
 
@@ -1087,20 +1054,19 @@ cgi/
     - 同源文档可以读取并修改localStorage数据，sessionStorage只允许同一个窗口下的文档访问，如通过iframe引入的同源文档。
     - Storage对象通常被当做普通javascript对象使用：**通过设置属性来存取字符串值**，也可以通过**setItem(key, value)设置**，**getItem(key)读取**，**removeItem(key)删除**，**clear()删除所有数据**，**length表示已存储的数据项数目**，**key(index)返回对应索引的key**
 
-<pre>
+```
 localStorage.setItem('x', 1); // storge x->1
 localStorage.getItem('x); // return value of x
 
 // 枚举所有存储的键值对
-for (var i = 0, len = localStorage.length; i &lt; len; ++i ) {
+for (var i = 0, len = localStorage.length; i < len; ++i ) {
     var name = localStorage.key(i);
     var value = localStorage.getItem(name);
 }
 
 localStorage.removeItem('x'); // remove x
 localStorage.clear();  // remove all data
-
-</pre>
+```
 
 - **cookie及其操作**  
     - cookie是web浏览器存储的少量数据，最早设计为服务器端使用，作为HTTP协议的扩展实现。cookie数据会自动在浏览器和服务器之间传输。
@@ -1111,7 +1077,7 @@ localStorage.clear();  // remove all data
     - 通过cookie保存数据的方法为：为document.cookie设置一个符合目标的字符串如下
     - 读取document.cookie获得'; '分隔的字符串，key=value,解析得到结果
 
-<pre>
+```
 document.cookie = 'name=qiu; max-age=9999; path=/; domain=domain; secure';
 
 document.cookie = 'name=aaa; path=/; domain=domain; secure'; 
@@ -1122,16 +1088,13 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 
 //读取cookie，访问document.cookie返回键值对组成的字符串，
 //不同键值对之间用'; '分隔。通过解析获得需要的值
-</pre>
+```
 
 [cookieUtil.js](https://github.com/qiu-deqing/google/blob/master/module/js/cookieUtil.js)：自己写的cookie操作工具
 
-
-<br />
-
 - **javascript有哪些方法定义对象**
-    1. 对象字面量： <code>var obj = {};</code>
-    2. 构造函数： <code>var obj = new Object();</code>
+    1. 对象字面量： `var obj = {};`
+    2. 构造函数： `var obj = new Object();`
     3. Object.create(): ``var obj = Object.create(Object.prototype);````
 
 
@@ -1157,21 +1120,18 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
         5. **其他所有情况都认为不相等**
 
 
-<br />
-
 - **对象到字符串的转换步骤**
     1. 如果对象有toString()方法，javascript调用它。如果返回一个原始值（primitive value如：string number boolean）,将这个值转换为字符串作为结果
     2. 如果对象没有toString()方法或者返回值不是原始值，javascript寻找对象的valueOf()方法，如果存在就调用它，返回结果是原始值则转为字符串作为结果
     3. 否则，javascript不能从toString()或者valueOf()获得一个原始值，此时throws a TypeError
 
-<br />
 
 ### 对象到数字的转换步骤
     1. 如果对象有valueOf()方法并且返回元素值，javascript将返回值转换为数字作为结果
     2. 否则，如果对象有toString()并且返回原始值，javascript将返回结果转换为数字作为结果
     3. 否则，throws a TypeError
 
-### &lt;,&gt;,&lt;=,&gt;=的比较规则
+### <,>,<=,>=的比较规则
 所有比较运算符都支持任意类型，但是**比较只支持数字和字符串**，所以需要执行必要的转换然后进行比较，转换规则如下:
     1. 如果操作数是对象，转换为原始值：如果valueOf方法返回原始值，则使用这个值，否则使用toString方法的结果，如果转换失败则报错
     2. 经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的16位unicode值的大小）
@@ -1198,7 +1158,7 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 - 老版本IE事件监听elem.attachEvent('on'+type, handler)/elem.detachEvent('on'+type, handler)：handler不接收event作为参数，事件信息保存在window.event中，触发事件的对象为event.srcElement，handler执行上下文this为window使用闭包中调用handler.call(elem, event)可模仿标准模型，然后返回闭包，保证了监听器的移除。event.returnValue为false时取消事件默认行为，event.cancleBubble为true时取消时间传播
 - 通常利用事件冒泡机制托管事件处理程序提高程序性能。
 
-<pre>
+```
 /**
  * 跨浏览器事件处理工具。只支持冒泡。不支持捕获
  * @author  (qiu_deqing@126.com)
@@ -1248,11 +1208,11 @@ var EventUtil = {
         }
     }
 };
-</pre>
+```
 
 ### 评价一下三种方法实现继承的优缺点，并改进
 
-<pre>
+```
 function Shape() {}
 
 function Rect() {}
@@ -1269,7 +1229,7 @@ Rect.prototype = Object.create(Shape.prototype);
 Rect.prototype.area = function () {
   // do something
 };
-</pre>
+```
 
 方法1：
 
@@ -1293,25 +1253,27 @@ Rect.prototype.area = function () {
 
 1. 所有三种方法应该在子类构造函数中调用父类构造函数实现实例属性初始化
 
-    <pre>function Rect() {
-        Shape.call(this);
-    }
-    </pre>
+```
+function Rect() {
+    Shape.call(this);
+}
+```
 
 
 2. 用新创建的对象替代子类默认原型，设置``Rect.prototype.constructor = Rect;``保证一致性
 3. 第三种方法的polyfill：
 
-    <pre>function create(obj) {
-        if (Object.create) {
-            return Object.create(obj);
-        }
-
-        function f() {};
-        f.prototype = obj;
-        return new f();
+```
+function create(obj) {
+    if (Object.create) {
+        return Object.create(obj);
     }
-    </pre>
+
+    function f() {};
+    f.prototype = obj;
+    return new f();
+}
+```
 
 ## $javascript编程部分
 
@@ -1479,12 +1441,12 @@ Rect.prototype.area = function () {
 ### 完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组
 如：[1, [2, [ [3, 4], 5], 6]] => [1, 2, 3, 4, 5, 6]
 
-<pre>
+```
     var data =  [1, [2, [ [3, 4], 5], 6]];
 
     function flat(data, result) {
         var i, d, len;
-        for (i = 0, len = data.length; i &lt; len; ++i) {
+        for (i = 0, len = data.length; i < len; ++i) {
             d = data[i];
             if (typeof d === 'number') {
                 result.push(d);
@@ -1498,12 +1460,12 @@ Rect.prototype.area = function () {
     flat(data, result);
 
     console.log(result);
-</pre>
+```
 
 ### 如何判断一个对象是否为数组
 如果浏览器支持Array.isArray()可以直接判断否则需进行必要判断
 
-<pre>
+```
 /**
  * 判断一个对象是否是数组，参数不是对象或者不是数组，返回false
  * 
@@ -1516,11 +1478,11 @@ function isArray(arg) {
     }
     return false;
 }
-</pre>
+```
 
-### 请评价以下代码并给出改进意见
+### 请评价以下事件监听器代码并给出改进意见
 
-<pre>
+```
 if (window.addEventListener) {
   var addListener = function (el, type, listener, useCapture) {
     el.addEventListener(type, listener, useCapture);
@@ -1533,7 +1495,7 @@ else if (document.all) {
     });
   };
 }
-</pre>
+```
 
 作用：浏览器功能检测实现跨浏览器DOM事件绑定
 
@@ -1552,7 +1514,7 @@ else if (document.all) {
 
 改进:
 
-<pre>
+```
 var addListener;
 
 if (window.addEventListener) {
@@ -1575,11 +1537,11 @@ else if (window.attachEvent) {
     // 返回wrapper。调用者可以保存，以后remove
   };
 }
-</pre>
+```
 
 ### 如何判断一个对象是否为函数  
 
-<pre>
+```
 /**
  * 判断对象是否为函数，如果当前运行环境对可调用对象（如正则表达式）
  * 的typeof返回'function'，采用通用方法，否则采用优化方法
@@ -1597,11 +1559,11 @@ function isFunction(arg) {
     } // end if
     return false;
 }
-</pre>
+```
 
 ### 编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码
 
-<pre>
+```
 /**
  * 解析query string转换为对象，一个key有多个值时生成数组
  * 
@@ -1627,7 +1589,7 @@ function parseQuery(query) {
     var key, value;
     var i, len;
 
-    for (i = 0, len = pairs.length; i &lt; len; ++i) {
+    for (i = 0, len = pairs.length; i < len; ++i) {
         pair = pairs[i].split('=');
         // application/x-www-form-urlencoded编码会将' '转换为+
         key = decodeURIComponent(pair[0]).replace(/\+/g, ' '); 
@@ -1661,11 +1623,11 @@ function isArray(arg) {
 /**
 console.log(parseQuery('sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8'));
  */
-</pre>
+```
 
 ### 解析一个完整的url，返回Object包含域与window.location相同  
 
-<pre>
+```
 /**
  * 解析一个url并生成window.location对象中包含的域
  * location:
@@ -1703,7 +1665,7 @@ function parseUrl(url) {
 
     return result;
 }
-</pre>
+```
 
 ### 完成函数getScrollOffset返回窗口滚动条偏移量
 
@@ -1748,7 +1710,7 @@ function parseUrl(url) {
         var p = div.getElementsByTagName('p');
         var i, len;
 
-        for (i = 0, len = p.length; i &lt; len; ++i) {
+        for (i = 0, len = p.length; i < len; ++i) {
             if (p[i].getElementsByTagName('img').length === 1) {
                 p[i].classList.add('pic');
             }
@@ -1811,15 +1773,15 @@ function parseUrl(url) {
 
 ### 编写一个函数将列表子元素顺序反转
 
-<pre>
-&lt;ul id="target">
-    &lt;li>1&lt;/li>
-    &lt;li>2&lt;/li>
-    &lt;li>3&lt;/li>
-    &lt;li>4&lt;/li>
-&lt;/ul>
+```
+<ul id="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
 
-&lt;script>
+<script>
     var target = document.getElementById('target');
     var i;
     var frag = document.createDocumentFragment();
@@ -1828,12 +1790,12 @@ function parseUrl(url) {
         frag.appendChild(target.children[i]);
     }
     target.appendChild(frag);
-&lt;/script>
-</pre>
+</script>
+```
 
 ### 以下函数的作用是？空白区域应该填写什么
 
-<pre>
+```
 // define
 (function (window) {
     function fn(str) {
@@ -1852,10 +1814,10 @@ function parseUrl(url) {
 
 // use
 (function () {
-    var t = new fn('&lt;p>&lt;a href="{0}">{1}&lt;/a>&lt;span>{2}&lt;/span>&lt;/p>');
+    var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>');
     console.log(t.format('http://www.alibaba.com', 'Alibaba', 'Welcome'));
 })();
-</pre>
+```
 
 define部分定义一个简单的模板类，使用{}作为转义标记，中间的数字表示替换目标，format实参用来替换模板内标记  
 横线处填：  
@@ -1959,13 +1921,13 @@ define部分定义一个简单的模板类，使用{}作为转义标记，中间
 
 ### 使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器
 
-<pre>
-&lt;ul id="nav">
-    &lt;li>&lt;a href="http://11111">111&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://2222">222&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://333">333&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="http://444">444&lt;/a>&lt;/li>
-&lt;/ul>
+```
+<ul id="nav">
+    <li><a href="http://11111">111</a></li>
+    <li><a href="http://2222">222</a></li>
+    <li><a href="http://333">333</a></li>
+    <li><a href="http://444">444</a></li>
+</ul>
 
 Object:
 {
@@ -1973,11 +1935,11 @@ Object:
     "name": "111",
     "link": "http://1111"
 }
-</pre>
+```
 
 script:
 
-<pre>
+```
 var EventUtil = {
     getEvent: function (event) {
         return event || window.event;
@@ -2044,7 +2006,7 @@ EventUtil.on(nav, 'click', function (event) {
     var anchor;
     var obj = {};
 
-    for (i = 0, len = children.length; i &lt; len; ++i) {
+    for (i = 0, len = children.length; i < len; ++i) {
         if (children[i] === target) {
             obj.index = i + 1;
             anchor = target.getElementsByTagName('a')[0];
@@ -2056,7 +2018,7 @@ EventUtil.on(nav, 'click', function (event) {
     alert('index: ' + obj.index + ' name: ' + obj.name +
         ' link: ' + obj.link);
 });
-</pre>
+```
 
 ### 有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重
 
@@ -2085,7 +2047,7 @@ EventUtil.on(nav, 'click', function (event) {
         start = start == undefined ? 1 : start;
         end = end == undefined ?  100 : end;
 
-        if (end &lt;= start) {
+        if (end <= start) {
             end = start + 100;
         }
 
