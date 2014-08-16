@@ -4,13 +4,13 @@
 
 - [FE-interview](#fe-interview)
   - [$HTML， HTTP，web综合问题](#$html，-http，web综合问题)
-    - [常见排序算法的时间复杂度、空间复杂度](#常见排序算法的时间复杂度、空间复杂度)
+    - [常见排序算法的时间复杂度,空间复杂度](#常见排序算法的时间复杂度空间复杂度)
     - [前端需要注意哪些SEO](#前端需要注意哪些seo)
     - [web开发中会话跟踪的方法有哪些](#web开发中会话跟踪的方法有哪些)
     - [`<img>`的`title`和`alt`有什么区别](#img的title和alt有什么区别)
-    - [doctype是什么，举例常见doctype及特点](#doctype是什么，举例常见doctype及特点)
+    - [doctype是什么,举例常见doctype及特点](#doctype是什么举例常见doctype及特点)
     - [HTML全局属性(global attribute)有哪些](#html全局属性global-attribute有哪些)
-    - [什么是web语义化，有什么好处](#什么是web语义化，有什么好处)
+    - [什么是web语义化,有什么好处](#什么是web语义化有什么好处)
     - [HTTP method](#http-method)
     - [从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)](#从浏览器地址栏输入url到显示页面的步骤以http为例)
     - [HTTP request报文结构是怎样的](#http-request报文结构是怎样的)
@@ -20,58 +20,64 @@
     - [HTTP状态码及其含义](#http状态码及其含义)
   - [$CSS部分](#$css部分)
     - [CSS选择器有哪些](#css选择器有哪些)
-    - [css sprite是什么，有什么优缺点](#css-sprite是什么，有什么优缺点)
+    - [css sprite是什么,有什么优缺点](#css-sprite是什么有什么优缺点)
     - [`display: none;`与`visibility: hidden;`的区别](#display-none与visibility-hidden的区别)
     - [css hack原理及常用hack](#css-hack原理及常用hack)
-    - [specified value,computed value，used value计算方法](#specified-valuecomputed-value，used-value计算方法)
+    - [specified value,computed value,used value计算方法](#specified-valuecomputed-valueused-value计算方法)
     - [`link`与`@import`的区别](#link与@import的区别)
     - [``display: block;``和``display: inline;``的区别](#display-block和display-inline的区别)
-    - [PNG, GIF, JPG的区别及如何选](#png-gif-jpg的区别及如何选)
+    - [PNG,GIF,JPG的区别及如何选](#pnggifjpg的区别及如何选)
     - [CSS有哪些继承属性](#css有哪些继承属性)
-    - [IE6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决](#ie6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决)
+    - [IE6浏览器有哪些常见的bug,缺陷或者与标准不一致的地方,如何解决](#ie6浏览器有哪些常见的bug缺陷或者与标准不一致的地方如何解决)
     - [容器包含若干浮动元素时如何清理(包含)浮动](#容器包含若干浮动元素时如何清理包含浮动)
-    - [什么是FOUC？如何避免？](#什么是fouc？如何避免？)
-    - [如何创建块级格式化上下文（block formatting context）？有什么用](#如何创建块级格式化上下文（block-formatting-context）？有什么用)
-    - [display, float, position的关系](#display-float-position的关系)
-    - [外边距折叠（collapsing margins)](#外边距折叠（collapsing-margins)
-    - [如何确定一个元素的包含块（containing block)](#如何确定一个元素的包含块（containing-block)
-    - [stacking context，布局规则](#stacking-context，布局规则)
+    - [什么是FOUC?如何避免](#什么是fouc如何避免)
+    - [如何创建块级格式化上下文(block formatting context),BFC有什么用](#如何创建块级格式化上下文block-formatting-contextbfc有什么用)
+    - [display,float,position的关系](#displayfloatposition的关系)
+    - [外边距折叠(collapsing margins)](#外边距折叠collapsing-margins)
+    - [如何确定一个元素的包含块(containing block)](#如何确定一个元素的包含块containing-block)
+    - [stacking context,布局规则](#stacking-context布局规则)
   - [如何水平居中一个元素](#如何水平居中一个元素)
     - [如何竖直居中一个元素](#如何竖直居中一个元素)
   - [$javascript概念部分](#$javascript概念部分)
     - [focus/blur与focusin/focusout的区别与联系](#focusblur与focusinfocusout的区别与联系)
     - [mouseover/mouseout与mouseenter/mouseleave的区别与联系](#mouseovermouseout与mouseentermouseleave的区别与联系)
-    - [sessionStorage, localStorage, cookie区别](#sessionstorage-localstorage-cookie区别)
+    - [sessionStorage,localStorage,cookie区别](#sessionstoragelocalstoragecookie区别)
     - [javascript跨域通信](#javascript跨域通信)
     - [javascript有哪几种数据类型](#javascript有哪几种数据类型)
-    - [什么闭包，闭包有什么用](#什么闭包，闭包有什么用)
+    - [什么闭包,闭包有什么用](#什么闭包闭包有什么用)
     - [javascript有哪几种方法定义函数](#javascript有哪几种方法定义函数)
     - [应用程序存储和离线web应用](#应用程序存储和离线web应用)
+    - [客户端存储localStorage和sessionStorage](#客户端存储localstorage和sessionstorage)
+    - [cookie及其操作](#cookie及其操作)
+    - [javascript有哪些方法定义对象](#javascript有哪些方法定义对象)
+    - [===运算符判断相等的流程是怎样的](#===运算符判断相等的流程是怎样的)
+    - [==运算符判断相等的流程是怎样的](#==运算符判断相等的流程是怎样的)
+    - [对象到字符串的转换步骤](#对象到字符串的转换步骤)
     - [对象到数字的转换步骤](#对象到数字的转换步骤)
     - [<,>,<=,>=的比较规则](#==的比较规则)
     - [+运算符工作流程](#运算符工作流程)
-    - [函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组](#函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组)
-    - [DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容](#dom事件模型是如何的，编写一个eventutil工具类实现事件管理兼容)
-    - [评价一下三种方法实现继承的优缺点，并改进](#评价一下三种方法实现继承的优缺点，并改进)
+    - [函数内部arguments变量有哪些特性,有哪些属性,如何将它转换为数组](#函数内部arguments变量有哪些特性有哪些属性如何将它转换为数组)
+    - [DOM事件模型是如何的,编写一个EventUtil工具类实现事件管理兼容](#dom事件模型是如何的编写一个eventutil工具类实现事件管理兼容)
+    - [评价一下三种方法实现继承的优缺点,并改进](#评价一下三种方法实现继承的优缺点并改进)
   - [$javascript编程部分](#$javascript编程部分)
     - [完成下面的tool-tip](#完成下面的tool-tip)
     - [编写javascript深度克隆函数deepClone](#编写javascript深度克隆函数deepclone)
-    - [补充代码，鼠标单击Button1后将Button1移动到Button2的后面](#补充代码，鼠标单击button1后将button1移动到button2的后面)
-    - [网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”](#网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”)
-    - [完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组](#完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组)
+    - [补充代码,鼠标单击Button1后将Button1移动到Button2的后面](#补充代码鼠标单击button1后将button1移动到button2的后面)
+    - [网页中实现一个计算当年还剩多少时间的倒数计时程序,要求网页上实时动态显示"××年还剩××天××时××分××秒"](#网页中实现一个计算当年还剩多少时间的倒数计时程序要求网页上实时动态显示××年还剩××天××时××分××秒)
+    - [完成一个函数,接受数组作为参数,数组元素为整数或者数组,数组元素包含整数或数组,函数返回扁平化后的数组](#完成一个函数接受数组作为参数数组元素为整数或者数组数组元素包含整数或数组函数返回扁平化后的数组)
     - [如何判断一个对象是否为数组](#如何判断一个对象是否为数组)
     - [请评价以下事件监听器代码并给出改进意见](#请评价以下事件监听器代码并给出改进意见)
     - [如何判断一个对象是否为函数](#如何判断一个对象是否为函数)
-    - [编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码](#编写一个函数接受url中query-string为参数，返回解析后的object，query-string使用applicationx-www-form-urlencoded编码)
-    - [解析一个完整的url，返回Object包含域与window.location相同](#解析一个完整的url，返回object包含域与windowlocation相同)
+    - [编写一个函数接受url中query string为参数,返回解析后的Object,query string使用application/x-www-form-urlencoded编码](#编写一个函数接受url中query-string为参数返回解析后的objectquery-string使用applicationx-www-form-urlencoded编码)
+    - [解析一个完整的url,返回Object包含域与window.location相同](#解析一个完整的url返回object包含域与windowlocation相同)
     - [完成函数getScrollOffset返回窗口滚动条偏移量](#完成函数getscrolloffset返回窗口滚动条偏移量)
-    - [现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。](#现有一个字符串richtext，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jquery或kissy。)
-    - [请实现一个Event类，继承自此类的对象都会拥有两个方法on，off，once和trigger](#请实现一个event类，继承自此类的对象都会拥有两个方法on，off，once和trigger)
+    - [现有一个字符串richText,是一段富文本,需要显示在页面上.有个要求,需要给其中只包含一个img元素的p标签增加一个叫pic的class.请编写代码实现.可以使用jQuery或KISSY.](#现有一个字符串richtext是一段富文本需要显示在页面上有个要求需要给其中只包含一个img元素的p标签增加一个叫pic的class请编写代码实现可以使用jquery或kissy)
+    - [请实现一个Event类,继承自此类的对象都会拥有两个方法on,off,once和trigger](#请实现一个event类继承自此类的对象都会拥有两个方法onoffonce和trigger)
     - [编写一个函数将列表子元素顺序反转](#编写一个函数将列表子元素顺序反转)
-    - [以下函数的作用是？空白区域应该填写什么](#以下函数的作用是？空白区域应该填写什么)
-    - [编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）](#编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）)
-    - [使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器](#使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个object对象，兼容ie和标准浏览器)
-    - [有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重](#有一个大数组，var-a-=-1-2-3--a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重)
+    - [以下函数的作用是?空白区域应该填写什么](#以下函数的作用是空白区域应该填写什么)
+    - [编写一个函数实现form的序列化(即将一个表单中的键值序列化为可提交的字符串)](#编写一个函数实现form的序列化即将一个表单中的键值序列化为可提交的字符串)
+    - [使用原生javascript给下面列表中的li节点绑定点击事件,点击时创建一个Object对象,兼容IE和标准浏览器](#使用原生javascript给下面列表中的li节点绑定点击事件点击时创建一个object对象兼容ie和标准浏览器)
+    - [有一个大数组,var a = ['1', '2', '3', ...];a的长度是100,内容填充随机整数的字符串.请先构造此数组a,然后设计一个算法将其内容去重](#有一个大数组var-a-=-1-2-3-a的长度是100内容填充随机整数的字符串请先构造此数组a然后设计一个算法将其内容去重)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -81,7 +87,7 @@
 
 ## $HTML， HTTP，web综合问题
 
-### 常见排序算法的时间复杂度、空间复杂度
+### 常见排序算法的时间复杂度,空间复杂度
 
 ![排序算法比较](img/sort-compare.png)
 
@@ -108,7 +114,7 @@
 1. `title`是[global attributes](http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.core)之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
 2. `alt`是`<img>`的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
 
-### doctype是什么，举例常见doctype及特点
+### doctype是什么,举例常见doctype及特点
 
 1. `<!doctype>`声明必须处于HTML文档的头部，在`<html>`标签之前，HTML5中不区分大小写
 2. `<!doctype>`声明不是一个HTML标签，是一个用于告诉浏览器当前HTMl版本的指令
@@ -147,7 +153,7 @@
 - `title`: 元素相关的建议信息
 - `translate`: 元素和子孙节点内容是否需要本地化
 
-### 什么是web语义化，有什么好处
+### 什么是web语义化,有什么好处
 
 web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。  
 HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构  
@@ -418,7 +424,7 @@ Content-Type: text/html; charset=iso-8859-1
 18. **:hover**：鼠标移入状态的元素，兼容性a标签IE4+， 所有元素IE7+
 19. **:not(selector)**：选择不符合selector的元素。**不参与计算优先级**，兼容性：IE9+
 
-### css sprite是什么，有什么优缺点
+### css sprite是什么,有什么优缺点
 
 概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。  
 
@@ -536,7 +542,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 #veintesiete { color: blue !ie; } /* string after ! can be anything */
 ```
 
-### specified value,computed value，used value计算方法
+### specified value,computed value,used value计算方法
 
 - specified value: 计算方法如下：
     1. 如果样式表设置了一个值，使用这个值
@@ -586,7 +592,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 
 
 
-### PNG, GIF, JPG的区别及如何选  
+### PNG,GIF,JPG的区别及如何选  
 参考资料： [选择正确的图片格式](http://www.yuiblog.com/blog/2008/11/04/imageopt-2/)  
 **GIF**:  
 
@@ -617,7 +623,7 @@ html[xmlns*=""]:root #trece  { color: red  }
 - `color`
 - `visibility`
 
-### IE6浏览器有哪些常见的bug，缺陷或者与标准不一致的地方，如何解决
+### IE6浏览器有哪些常见的bug,缺陷或者与标准不一致的地方,如何解决
 
 - IE6不支持min-height，解决办法使用css hack：
 
@@ -753,10 +759,10 @@ if (target.attachEvent) {
 }
 ```
 
-### 什么是FOUC？如何避免？  
+### 什么是FOUC?如何避免
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。**解决方法**：把样式表放到文档的`head` 
 
-### 如何创建块级格式化上下文（block formatting context）？有什么用
+### 如何创建块级格式化上下文(block formatting context),BFC有什么用
 创建规则：  
 
 1. 根元素  
@@ -772,7 +778,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 2. 不被浮动元素覆盖  
 3. 阻止父子元素的margin折叠
 
-### display, float, position的关系
+### display,float,position的关系
 
 1. 如果``display``为none，那么position和float都不起作用，这种情况下元素不产生框
 2. 否则，如果position值为absolute或者fixed，框就是绝对定位的，float的计算值为none，display根据下面的表格进行调整。
@@ -782,7 +788,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 总结起来：**绝对定位、浮动、根元素都需要调整``display``**
 ![display转换规则](img/display-adjust.png)
 
-### 外边距折叠（collapsing margins)  
+### 外边距折叠(collapsing margins)
 毗邻的两个或多个``margin``会合并成一个margin，叫做外边距折叠。规则如下：  
 
 1. 两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠  
@@ -790,7 +796,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 3. 创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
 4. 元素自身的margin-bottom和margin-top相邻时也会折叠
 
-### 如何确定一个元素的包含块（containing block)
+### 如何确定一个元素的包含块(containing block)
 
 1. 根元素的包含块叫做初始包含块，在连续媒体中他的尺寸与viewport相同并且anchored at the canvas origin；对于paged media，它的尺寸等于page area。初始包含块的direction属性与根元素相同。
 2. ``position``为``relative``或者``static``的元素，它的包含块由最近的块级（``display``为``block``,``list-item``, ``table``）祖先元素的**内容框**组成
@@ -799,7 +805,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
     - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
     - 其他情况下包含块由祖先节点的**padding edge**组成  
 
-### stacking context，布局规则  
+### stacking context,布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
 
 1. 根元素的边界和背景  
@@ -995,7 +1001,7 @@ z轴上的默认层叠顺序如下（从下到上）：
     }
     </script>
 
-### sessionStorage, localStorage, cookie区别
+### sessionStorage,localStorage,cookie区别
 
 1. 都会在浏览器端保存，有大小限制，同源限制
 2. cookie会在请求时发送到服务器，作为会话标识，服务器可修改cookie；web storage不会发送到服务器
@@ -1035,7 +1041,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 
 - Object
 
-### 什么闭包，闭包有什么用
+### 什么闭包,闭包有什么用
 **闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量**。闭包作用域链通常包括三个部分：
 
 1. 函数本身作用域。
@@ -1077,11 +1083,11 @@ NETWORK:
 cgi/
 ```
 
-- **客户端存储localStorage和sessionStorage**
+### 客户端存储localStorage和sessionStorage
 
-    - localStorage有效期为永久，sessionStorage有效期为顶层窗口关闭前
-    - 同源文档可以读取并修改localStorage数据，sessionStorage只允许同一个窗口下的文档访问，如通过iframe引入的同源文档。
-    - Storage对象通常被当做普通javascript对象使用：**通过设置属性来存取字符串值**，也可以通过**setItem(key, value)设置**，**getItem(key)读取**，**removeItem(key)删除**，**clear()删除所有数据**，**length表示已存储的数据项数目**，**key(index)返回对应索引的key**
+- localStorage有效期为永久，sessionStorage有效期为顶层窗口关闭前
+- 同源文档可以读取并修改localStorage数据，sessionStorage只允许同一个窗口下的文档访问，如通过iframe引入的同源文档。
+- Storage对象通常被当做普通javascript对象使用：**通过设置属性来存取字符串值**，也可以通过**setItem(key, value)设置**，**getItem(key)读取**，**removeItem(key)删除**，**clear()删除所有数据**，**length表示已存储的数据项数目**，**key(index)返回对应索引的key**
 
 ```
 localStorage.setItem('x', 1); // storge x->1
@@ -1097,14 +1103,15 @@ localStorage.removeItem('x'); // remove x
 localStorage.clear();  // remove all data
 ```
 
-- **cookie及其操作**  
-    - cookie是web浏览器存储的少量数据，最早设计为服务器端使用，作为HTTP协议的扩展实现。cookie数据会自动在浏览器和服务器之间传输。
-    - 通过读写cookie检测是否支持
-    - cookie属性有**名**，**值**，**有效期**，**作用域**，**secure**；
-    - cookie默认有效期为浏览器会话，一旦用户关闭浏览器，数据就丢失，通过设置**max-age=seconds**属性告诉浏览器cookie有效期
-    - cookie作用域通过**文档源**和**文档路径**来确定，通过**path**和**domain**进行配置，web页面同目录或子目录文档都可访问
-    - 通过cookie保存数据的方法为：为document.cookie设置一个符合目标的字符串如下
-    - 读取document.cookie获得'; '分隔的字符串，key=value,解析得到结果
+### cookie及其操作
+
+- cookie是web浏览器存储的少量数据，最早设计为服务器端使用，作为HTTP协议的扩展实现。cookie数据会自动在浏览器和服务器之间传输。
+- 通过读写cookie检测是否支持
+- cookie属性有**名**，**值**，**max-age**，**path**, **domain**，**secure**；
+- cookie默认有效期为浏览器会话，一旦用户关闭浏览器，数据就丢失，通过设置**max-age=seconds**属性告诉浏览器cookie有效期
+- cookie作用域通过**文档源**和**文档路径**来确定，通过**path**和**domain**进行配置，web页面同目录或子目录文档都可访问
+- 通过cookie保存数据的方法为：为document.cookie设置一个符合目标的字符串如下
+- 读取document.cookie获得'; '分隔的字符串，key=value,解析得到结果
 
 ```
 document.cookie = 'name=qiu; max-age=9999; path=/; domain=domain; secure';
@@ -1121,57 +1128,58 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 
 [cookieUtil.js](https://github.com/qiu-deqing/google/blob/master/module/js/cookieUtil.js)：自己写的cookie操作工具
 
-- **javascript有哪些方法定义对象**
-    1. 对象字面量： `var obj = {};`
-    2. 构造函数： `var obj = new Object();`
-    3. Object.create(): ``var obj = Object.create(Object.prototype);````
+### javascript有哪些方法定义对象
 
+1. 对象字面量： `var obj = {};`
+2. 构造函数： `var obj = new Object();`
+3. Object.create(): `var obj = Object.create(Object.prototype);`
 
-- **===运算符判断相等的流程是怎样的**  
+### ===运算符判断相等的流程是怎样的
 
-    1. 如果两个值不是相同类型，它们不相等
-    2. 如果两个值都是null或者都是undefined，它们相等
-    3. 如果两个值都是布尔类型true或者都是false，它们相等
-    4. 如果其中有一个是**NaN**，它们不相等
-    5. 如果都是数值型并且数值相等，他们相等， -0等于0
-    6. 如果他们都是字符串并且在相同位置包含相同的16位值，他它们相等；如果在长度或者内容上不等，它们不相等；两个字符串显示结果相同但是编码不同==和===都认为他们不相等
-    7. 如果他们指向相同对象、数组、函数，它们相等；如果指向不同对象，他们不相等
+1. 如果两个值不是相同类型，它们不相等
+2. 如果两个值都是null或者都是undefined，它们相等
+3. 如果两个值都是布尔类型true或者都是false，它们相等
+4. 如果其中有一个是**NaN**，它们不相等
+5. 如果都是数值型并且数值相等，他们相等， -0等于0
+6. 如果他们都是字符串并且在相同位置包含相同的16位值，他它们相等；如果在长度或者内容上不等，它们不相等；两个字符串显示结果相同但是编码不同==和===都认为他们不相等
+7. 如果他们指向相同对象、数组、函数，它们相等；如果指向不同对象，他们不相等
 
-- **==运算符判断相等的流程是怎样的**
+### ==运算符判断相等的流程是怎样的
 
-    1. 如果两个值类型相同，按照===比较方法进行比较
-    2. 如果类型不同，使用如下规则进行比较
+1. 如果两个值类型相同，按照===比较方法进行比较
+2. 如果类型不同，使用如下规则进行比较
+  1. 如果其中一个值是null，另一个是undefined，它们相等
+  2. 如果一个值是**数字**另一个是**字符串**，将**字符串转换为数字**进行比较
+  3. 如果有布尔类型，将**true转换为1，false转换为0**，然后用==规则继续比较
+  4. 如果一个值是对象，另一个是数字或字符串，将对象转换为原始值然后用==规则继续比较
+  5. **其他所有情况都认为不相等**
 
-        1. 如果其中一个值是null，另一个是undefined，它们相等
-        2. 如果一个值是**数字**另一个是**字符串**，将**字符串转换为数字**进行比较
-        3. 如果有布尔类型，将**true转换为1，false转换为0**，然后用==规则继续比较
-        4. 如果一个值是对象，另一个是数字或字符串，将对象转换为原始值然后用==规则继续比较
-        5. **其他所有情况都认为不相等**
+### 对象到字符串的转换步骤
 
-
-- **对象到字符串的转换步骤**
-    1. 如果对象有toString()方法，javascript调用它。如果返回一个原始值（primitive value如：string number boolean）,将这个值转换为字符串作为结果
-    2. 如果对象没有toString()方法或者返回值不是原始值，javascript寻找对象的valueOf()方法，如果存在就调用它，返回结果是原始值则转为字符串作为结果
-    3. 否则，javascript不能从toString()或者valueOf()获得一个原始值，此时throws a TypeError
+1. 如果对象有toString()方法，javascript调用它。如果返回一个原始值（primitive value如：string number boolean）,将这个值转换为字符串作为结果
+2. 如果对象没有toString()方法或者返回值不是原始值，javascript寻找对象的valueOf()方法，如果存在就调用它，返回结果是原始值则转为字符串作为结果
+3. 否则，javascript不能从toString()或者valueOf()获得一个原始值，此时throws a TypeError
 
 
 ### 对象到数字的转换步骤
+
     1. 如果对象有valueOf()方法并且返回元素值，javascript将返回值转换为数字作为结果
     2. 否则，如果对象有toString()并且返回原始值，javascript将返回结果转换为数字作为结果
     3. 否则，throws a TypeError
 
 ### <,>,<=,>=的比较规则
+
 所有比较运算符都支持任意类型，但是**比较只支持数字和字符串**，所以需要执行必要的转换然后进行比较，转换规则如下:
-    1. 如果操作数是对象，转换为原始值：如果valueOf方法返回原始值，则使用这个值，否则使用toString方法的结果，如果转换失败则报错
-    2. 经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的16位unicode值的大小）
-    3. 否则，如果有一个操作数不是字符串，**将两个操作数转换为数字**进行比较
+1. 如果操作数是对象，转换为原始值：如果valueOf方法返回原始值，则使用这个值，否则使用toString方法的结果，如果转换失败则报错
+2. 经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的16位unicode值的大小）
+3. 否则，如果有一个操作数不是字符串，**将两个操作数转换为数字**进行比较
 
 ### +运算符工作流程
-    1. 如果有操作数是对象，转换为原始值
-    2. 此时如果有**一个操作数是字符串**，其他的操作数都转换为字符串并执行连接
-    3. 否则：**所有操作数都转换为数字并执行加法**
+1. 如果有操作数是对象，转换为原始值
+2. 此时如果有**一个操作数是字符串**，其他的操作数都转换为字符串并执行连接
+3. 否则：**所有操作数都转换为数字并执行加法**
 
-### 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组
+### 函数内部arguments变量有哪些特性,有哪些属性,如何将它转换为数组
 
 - arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象
 - arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参时会同时修改实参
@@ -1180,7 +1188,7 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 - arguments.caller为调用当前函数的函数（已被遗弃）
 - 转换为数组：<code>var args = Array.prototype.slice.call(arguments, 0);</code>
 
-### DOM事件模型是如何的，编写一个EventUtil工具类实现事件管理兼容
+### DOM事件模型是如何的,编写一个EventUtil工具类实现事件管理兼容
 
 - DOM事件包含捕获（capture）和冒泡（bubble）两个阶段：捕获阶段事件从window开始触发事件然后通过祖先节点一次传递到触发事件的DOM元素上；冒泡阶段事件从初始元素依次向祖先节点传递直到window
 - 标准事件监听elem.addEventListener(type, handler, capture)/elem.removeEventListener(type, handler, capture)：handler接收保存事件信息的event对象作为参数，event.target为触发事件的对象，handler调用上下文this为绑定监听器的对象，event.preventDefault()取消事件默认行为，event.stopPropagation()/event.stopImmediatePropagation()取消事件传递
@@ -1239,7 +1247,7 @@ var EventUtil = {
 };
 ```
 
-### 评价一下三种方法实现继承的优缺点，并改进
+### 评价一下三种方法实现继承的优缺点,并改进
 
 ```
 function Shape() {}
@@ -1366,7 +1374,7 @@ function create(obj) {
     console.log(c.a === b.a);
     console.log(c, b);
 
-### 补充代码，鼠标单击Button1后将Button1移动到Button2的后面
+### 补充代码,鼠标单击Button1后将Button1移动到Button2的后面
     <!doctype html>
     <html>
     <head>
@@ -1407,7 +1415,7 @@ function create(obj) {
     </body>
     </html>
 
-### 网页中实现一个计算当年还剩多少时间的倒数计时程序，要求网页上实时动态显示“××年还剩××天××时××分××秒”
+### 网页中实现一个计算当年还剩多少时间的倒数计时程序,要求网页上实时动态显示"××年还剩××天××时××分××秒"
 
     <!doctype html>
     <html>
@@ -1467,7 +1475,7 @@ function create(obj) {
     </body>
     </html>
 
-### 完成一个函数，接受数组作为参数，数组元素为整数或者数组，数组元素包含整数或数组，函数返回扁平化后的数组
+### 完成一个函数,接受数组作为参数,数组元素为整数或者数组,数组元素包含整数或数组,函数返回扁平化后的数组
 如：[1, [2, [ [3, 4], 5], 6]] => [1, 2, 3, 4, 5, 6]
 
 ```
@@ -1590,7 +1598,7 @@ function isFunction(arg) {
 }
 ```
 
-### 编写一个函数接受url中query string为参数，返回解析后的Object，query string使用application/x-www-form-urlencoded编码
+### 编写一个函数接受url中query string为参数,返回解析后的Object,query string使用application/x-www-form-urlencoded编码
 
 ```
 /**
@@ -1654,7 +1662,7 @@ console.log(parseQuery('sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8'));
  */
 ```
 
-### 解析一个完整的url，返回Object包含域与window.location相同  
+### 解析一个完整的url,返回Object包含域与window.location相同  
 
 ```
 /**
@@ -1731,7 +1739,7 @@ function parseUrl(url) {
     }
 
 
-### 现有一个字符串richText，是一段富文本，需要显示在页面上。有个要求，需要给其中只包含一个img元素的p标签增加一个叫pic的class。请编写代码实现。可以使用jQuery或KISSY。
+### 现有一个字符串richText,是一段富文本,需要显示在页面上.有个要求,需要给其中只包含一个img元素的p标签增加一个叫pic的class.请编写代码实现.可以使用jQuery或KISSY.
 
     function richText(text) {
         var div = document.createElement('div');
@@ -1748,7 +1756,7 @@ function parseUrl(url) {
         return div.innerHTML;
     }
 
-### 请实现一个Event类，继承自此类的对象都会拥有两个方法on，off，once和trigger
+### 请实现一个Event类,继承自此类的对象都会拥有两个方法on,off,once和trigger
 
 
     function Event() {
@@ -1822,7 +1830,7 @@ function parseUrl(url) {
 </script>
 ```
 
-### 以下函数的作用是？空白区域应该填写什么
+### 以下函数的作用是?空白区域应该填写什么
 
 ```
 // define
@@ -1854,7 +1862,7 @@ define部分定义一个简单的模板类，使用{}作为转义标记，中间
 1. ``Array.prototype.slice.call(arguments, 0)``
 2. ``/\{\s*(\d+)\s*\}/g``
 
-### 编写一个函数实现form的序列化（即将一个表单中的键值序列化为可提交的字符串）
+### 编写一个函数实现form的序列化(即将一个表单中的键值序列化为可提交的字符串)
 
 
     <form id="target">
@@ -1948,7 +1956,7 @@ define部分定义一个简单的模板类，使用{}作为转义标记，中间
     console.log(serializeForm(form));
     </script>
 
-### 使用原生javascript给下面列表中的li节点绑定点击事件，点击时创建一个Object对象，兼容IE和标准浏览器
+### 使用原生javascript给下面列表中的li节点绑定点击事件,点击时创建一个Object对象,兼容IE和标准浏览器
 
 ```
 <ul id="nav">
@@ -2049,7 +2057,7 @@ EventUtil.on(nav, 'click', function (event) {
 });
 ```
 
-### 有一个大数组，var a = ['1', '2', '3', ...]; a的长度是100，内容填充随机整数的字符串。请先构造此数组a，然后设计一个算法将其内容去重
+### 有一个大数组,var a = ['1', '2', '3', ...];a的长度是100,内容填充随机整数的字符串.请先构造此数组a,然后设计一个算法将其内容去重
 
 ```
     /**
