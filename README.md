@@ -4,7 +4,7 @@
 
 - [FE-interview](#fe-interview)
   - [$HTML， HTTP，web综合问题](#$html，-http，web综合问题)
-    - [常见排序算法的时间复杂度、空间复杂度](#sort-compare)
+    - [常见排序算法的时间复杂度、空间复杂度](#常见排序算法的时间复杂度、空间复杂度)
     - [前端需要注意哪些SEO](#前端需要注意哪些seo)
     - [web开发中会话跟踪的方法有哪些](#web开发中会话跟踪的方法有哪些)
     - [`<img>`的`title`和`alt`有什么区别](#img的title和alt有什么区别)
@@ -81,7 +81,7 @@
 
 ## $HTML， HTTP，web综合问题
 
-### [](#sort-compare)常见排序算法的时间复杂度、空间复杂度
+### 常见排序算法的时间复杂度、空间复杂度
 
 ![排序算法比较](img/sort-compare.png)
 
