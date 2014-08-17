@@ -1,4 +1,4 @@
-jin<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
@@ -39,6 +39,7 @@ jin<!-- START doctoc generated TOC please keep comment here to allow auto update
   - [如何水平居中一个元素](#如何水平居中一个元素)
     - [如何竖直居中一个元素](#如何竖直居中一个元素)
   - [$javascript概念部分](#$javascript概念部分)
+    - [XMLHttpRequest通用属性和方法](#xmlhttprequest通用属性和方法)
     - [focus/blur与focusin/focusout的区别与联系](#focusblur与focusinfocusout的区别与联系)
     - [mouseover/mouseout与mouseenter/mouseleave的区别与联系](#mouseovermouseout与mouseentermouseleave的区别与联系)
     - [sessionStorage,localStorage,cookie区别](#sessionstoragelocalstoragecookie区别)
@@ -60,6 +61,8 @@ jin<!-- START doctoc generated TOC please keep comment here to allow auto update
     - [DOM事件模型是如何的,编写一个EventUtil工具类实现事件管理兼容](#dom事件模型是如何的编写一个eventutil工具类实现事件管理兼容)
     - [评价一下三种方法实现继承的优缺点,并改进](#评价一下三种方法实现继承的优缺点并改进)
   - [$javascript编程部分](#$javascript编程部分)
+    - [下面这段代码想要循环延时输出结果0 1 2 3 4,请问输出结果是否正确,如果不正确,请说明为什么,并修改循环内的代码使其输出正确结果](#下面这段代码想要循环延时输出结果0-1-2-3-4请问输出结果是否正确如果不正确请说明为什么并修改循环内的代码使其输出正确结果)
+    - [现有一个Page类,其原型对象上有许多以post开头的方法(如postMsg);另有一拦截函数chekc,只返回ture或false.请设计一个函数,该函数应批量改造原Page的postXXX方法,在保留其原有功能的同时,为每个postXXX方法增加拦截验证功能,当chekc返回true时继续执行原postXXX方法,返回false时不再执行原postXXX方法](#现有一个page类其原型对象上有许多以post开头的方法如postmsg另有一拦截函数chekc只返回ture或false请设计一个函数该函数应批量改造原page的postxxx方法在保留其原有功能的同时为每个postxxx方法增加拦截验证功能当chekc返回true时继续执行原postxxx方法返回false时不再执行原postxxx方法)
     - [完成下面的tool-tip](#完成下面的tool-tip)
     - [编写javascript深度克隆函数deepClone](#编写javascript深度克隆函数deepclone)
     - [补充代码,鼠标单击Button1后将Button1移动到Button2的后面](#补充代码鼠标单击button1后将button1移动到button2的后面)
