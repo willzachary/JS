@@ -1,4 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+jin<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
@@ -1333,6 +1333,77 @@ function create(obj) {
 ```
 
 ## $javascript编程部分
+
+### 下面这段代码想要循环延时输出结果0 1 2 3 4,请问输出结果是否正确,如果不正确,请说明为什么,并修改循环内的代码使其输出正确结果
+
+```
+for (var i = 0; i < 5; ++i) {
+  setTimeout(function () {
+    console.log(i + ' ');
+  }, 100);
+}
+```
+
+不能输出正确结果，因为循环中setTimeout接受的参数函数通过闭包访问变量i。javascript运行环境为单线程，setTimeout注册的函数需要等待线程空闲才能执行，此时for循环已经结束，i值为5.五个定时输出都是5  
+修改方法：将setTimeout放在函数立即调用表达式中，将i值作为参数传递给包裹函数，创建新闭包
+
+```
+for (var i = 0; i < 5; ++i) {
+  (function (i) {
+    setTimeout(function () {
+      console.log(i + ' ');
+    }, 100);  
+  }(i));
+}
+```
+
+
+
+### 现有一个Page类,其原型对象上有许多以post开头的方法(如postMsg);另有一拦截函数chekc,只返回ture或false.请设计一个函数,该函数应批量改造原Page的postXXX方法,在保留其原有功能的同时,为每个postXXX方法增加拦截验证功能,当chekc返回true时继续执行原postXXX方法,返回false时不再执行原postXXX方法
+
+```
+function Page() {}
+
+Page.prototype = {
+  constructor: Page,
+
+  postA: function (a) {
+    console.log('a:' + a);
+  },
+  postB: function (b) {
+    console.log('b:' + b);
+  },
+  postC: function (c) {
+    console.log('c:' + c);
+  },
+  check: function () {
+    return Math.random() > 0.5;
+  }
+}
+
+function checkfy(obj) {
+  for (var key in obj) {
+    if (key.indexOf('post') === 0 && typeof obj[key] === 'function') {
+      (function (key) {
+        var fn = obj[key];
+        obj[key] = function () {
+          if (obj.check()) {
+            fn.apply(obj, arguments);
+          }
+        };
+      }(key));
+    }
+  }
+} // end checkfy()
+
+checkfy(Page.prototype);
+
+var obj = new Page();
+
+obj.postA('checkfy');
+obj.postB('checkfy');
+obj.postC('checkfy');
+```
 
 ### 完成下面的tool-tip
 ![xxx](img/tip-box.jpg)
