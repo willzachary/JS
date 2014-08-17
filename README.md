@@ -946,6 +946,26 @@ z轴上的默认层叠顺序如下（从下到上）：
 
 ## $javascript概念部分
 
+### XMLHttpRequest通用属性和方法
+
+1. `readyState`:表示请求状态的整数，取值：
+  - 0（没有初始化）
+  - 1（正在加载）
+  - 2（接收到响应报头）
+  - 3（接收到部分响应体）
+  - 4（完成请求）
+3. `onreadystatechange`：readyState改变时调用的函数
+4. `status`：服务器返回的HTTP状态码（如，200， 404）
+5. `statusText`:服务器返回的HTTP状态信息（如，OK，No Content）
+6. `responseText`:作为字符串形式的来自服务器的完整响应
+6. `responseXML`: Document对象，表示服务器的响应解析成的XML文档
+7. `abort()`:取消异步HTTP请求
+8. `getAllResponseHeaders()`: 返回一个字符串，包含响应中服务器发送的全部HTTP报头。每个报头都是一个用冒号分隔开的名/值对，并且使用一个回车/换行来分隔报头行
+9. `getResponseHeader(headerName)`:返回headName对应的报头值
+10. `open(method, url, asynchronous [, user, password])`:初始化准备发送到服务器上的请求。method是HTTP方法，不区分大小写；url是请求发送的相对或绝对URL；asynchronous表示请求是否异步；user和password提供身份验证
+11. `setRequestHeader(name, value)`:设置HTTP报头
+12. `send(body)`:对服务器请求进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null
+
 ### focus/blur与focusin/focusout的区别与联系
 
 1. focus/blur不冒泡，focusin/focusout冒泡
