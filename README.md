@@ -952,11 +952,11 @@ z轴上的默认层叠顺序如下（从下到上）：
 ### XMLHttpRequest通用属性和方法
 
 1. `readyState`:表示请求状态的整数，取值：
-  - 0（没有初始化）
-  - 1（正在加载）
-  - 2（接收到响应报头）
-  - 3（接收到部分响应体）
-  - 4（完成请求）
+  - UNSENT（0）：对象已创建
+  - OPENED（1）：open()成功调用，在这个状态下，可以为xhr设置请求头，或者使用send()发送请求
+  - HEADERS_RECEIVED(2)：所有重定向已经自动完成访问，并且最终响应的HTTP头已经收到
+  - LOADING(3)：响应体正在接收
+  - DONE(4)：数据传输完成或者传输产生错误
 3. `onreadystatechange`：readyState改变时调用的函数
 4. `status`：服务器返回的HTTP状态码（如，200， 404）
 5. `statusText`:服务器返回的HTTP状态信息（如，OK，No Content）
