@@ -36,7 +36,7 @@
     - [外边距折叠(collapsing margins)](#外边距折叠collapsing-margins)
     - [如何确定一个元素的包含块(containing block)](#如何确定一个元素的包含块containing-block)
     - [stacking context,布局规则](#stacking-context布局规则)
-  - [如何水平居中一个元素](#如何水平居中一个元素)
+    - [如何水平居中一个元素](#如何水平居中一个元素)
     - [如何竖直居中一个元素](#如何竖直居中一个元素)
   - [$javascript概念部分](#$javascript概念部分)
     - [XMLHttpRequest通用属性和方法](#xmlhttprequest通用属性和方法)
@@ -73,6 +73,7 @@
     - [如何判断一个对象是否为函数](#如何判断一个对象是否为函数)
     - [编写一个函数接受url中query string为参数,返回解析后的Object,query string使用application/x-www-form-urlencoded编码](#编写一个函数接受url中query-string为参数返回解析后的objectquery-string使用applicationx-www-form-urlencoded编码)
     - [解析一个完整的url,返回Object包含域与window.location相同](#解析一个完整的url返回object包含域与windowlocation相同)
+    - [完成函数getViewportSize返回指定窗口的视口尺寸](#完成函数getviewportsize返回指定窗口的视口尺寸)
     - [完成函数getScrollOffset返回窗口滚动条偏移量](#完成函数getscrolloffset返回窗口滚动条偏移量)
     - [现有一个字符串richText,是一段富文本,需要显示在页面上.有个要求,需要给其中只包含一个img元素的p标签增加一个叫pic的class.请编写代码实现.可以使用jQuery或KISSY.](#现有一个字符串richtext是一段富文本需要显示在页面上有个要求需要给其中只包含一个img元素的p标签增加一个叫pic的class请编写代码实现可以使用jquery或kissy)
     - [请实现一个Event类,继承自此类的对象都会拥有两个方法on,off,once和trigger](#请实现一个event类继承自此类的对象都会拥有两个方法onoffonce和trigger)
@@ -824,7 +825,7 @@ z轴上的默认层叠顺序如下（从下到上）：
 4. opacity小于1的元素  
 5. 在移动端webkit和chrome22+，z-index为auto，position: fixed也将创建新的stacking context  
 
-## 如何水平居中一个元素
+### 如何水平居中一个元素
 - 如果需要居中的元素为**常规流中inline元素**，为父元素设置`text-align: center;`即可实现
 - 如果需要居中的元素为**常规流中block元素**，1）为元素设置宽度，2）设置左右margin为auto。3）IE6下需在父元素上设置`text-align: center;`,再给子元素恢复需要的值
 
@@ -1337,6 +1338,7 @@ function create(obj) {
 
 ## $javascript编程部分
 
+
 ### 下面这段代码想要循环延时输出结果0 1 2 3 4,请问输出结果是否正确,如果不正确,请说明为什么,并修改循环内的代码使其输出正确结果
 
 ```
@@ -1795,6 +1797,40 @@ function parseUrl(url) {
     }
 
     return result;
+}
+```
+
+### 完成函数getViewportSize返回指定窗口的视口尺寸
+
+```
+/**
+* 查询指定窗口的视口尺寸，如果不指定窗口，查询当前窗口尺寸
+**/
+function getViewportSize(w) {
+    w = w || window;
+
+    // IE9及标准浏览器中可使用此标准方法
+    if ('innerHeight' in w) {
+        return {
+            width: w.innerWidth,
+            height: w.innerHeight
+        };
+    }
+
+    var d = w.document;
+    // IE 8及以下浏览器在标准模式下
+    if (document.compatMode === 'CSS1Compat') {
+        return {
+            width: d.documentElement.clientWidth,
+            height: d.documentElement.clientHeight
+        };
+    }
+
+    // IE8及以下浏览器在怪癖模式下
+    return {
+        width: d.body.clientWidth,
+        height: d.body.clientHeight
+    };
 }
 ```
 
