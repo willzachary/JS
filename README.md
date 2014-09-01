@@ -1382,9 +1382,13 @@ function addMask(elem, opacity) {
     var marginTop = parseFloat(style.marginTop);
     mask.style.top = (elem.offsetTop - marginTop) + 'px';
     mask.style.zIndex = 9999;
+    mask.style.opacity = '' + opacity;
+    mask.style.backgroundColor = '#000';
 
-    mask.style.width = (parseFloat(style.marginLeft) + parseFloat(style.marginRight) + rect.width) + 'px';
-    mask.style.height = (parseFloat(style.marginTop) + parseFloat(style.marginBottom) + rect.height) + 'px';
+    mask.style.width = (parseFloat(style.marginLeft) + 
+        parseFloat(style.marginRight) + rect.width) + 'px';
+    mask.style.height = (parseFloat(style.marginTop) + 
+        parseFloat(style.marginBottom) + rect.height) + 'px';
 
     elem.parentNode.appendChild(mask);
 }
