@@ -39,6 +39,7 @@
     - [如何水平居中一个元素](#如何水平居中一个元素)
     - [如何竖直居中一个元素](#如何竖直居中一个元素)
   - [$javascript概念部分](#$javascript概念部分)
+    - [offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别](#offsetwidthoffsetheightclientwidthclientheight与scrollwidthscrollheight的区别)
     - [XMLHttpRequest通用属性和方法](#xmlhttprequest通用属性和方法)
     - [focus/blur与focusin/focusout的区别与联系](#focusblur与focusinfocusout的区别与联系)
     - [mouseover/mouseout与mouseenter/mouseleave的区别与联系](#mouseovermouseout与mouseentermouseleave的区别与联系)
@@ -811,7 +812,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
     - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
     - 其他情况下包含块由祖先节点的**padding edge**组成
 
-如果找不到定位的祖先元素，包含块为**初始包含块**
+    如果找不到定位的祖先元素，包含块为**初始包含块**
 
 ### stacking context,布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
@@ -953,6 +954,16 @@ z轴上的默认层叠顺序如下（从下到上）：
 
 
 ## $javascript概念部分
+
+### offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别
+
+- offsetWidth/offsetHeight返回值包含**content + padding + border**，效果与e.getBoundingClientRect()相同
+- clientWidth/clientHeight返回值只包含**content + padding**，如果有滚动条，也**不包含滚动条**
+- scrollWidth/scrollHeight返回值包含**content + padding + 溢出内容的尺寸**
+
+[Measuring Element Dimension and Location with CSSOM in Windows Internet Explorer 9](http://msdn.microsoft.com/en-us/library/ie/hh781509(v=vs.85).aspx)
+
+![元素尺寸](img/element-size.png)
 
 ### XMLHttpRequest通用属性和方法
 
@@ -1346,6 +1357,45 @@ function create(obj) {
 ![遮罩效果](img/element-mask.jpg)
 
 ```
+<style>
+#target {
+    width: 200px;
+    height: 300px;
+    margin: 40px;
+    background-color: tomato;
+}
+</style>
+
+<div id="target"></div>
+
+<script>
+function addMask(elem, opacity) {
+    opacity = opacity || 0.2;
+
+    var rect = elem.getBoundingClientRect();
+    var style = getComputedStyle(elem, null);        
+
+    var mask = document.createElement('div');
+    mask.style.position = 'absolute';
+    var marginLeft = parseFloat(style.marginLeft);
+    mask.style.left = (elem.offsetLeft - marginLeft) + 'px';
+    var marginTop = parseFloat(style.marginTop);
+    mask.style.top = (elem.offsetTop - marginTop) + 'px';
+    mask.style.zIndex = 9999;
+
+    mask.style.width = (parseFloat(style.marginLeft) + parseFloat(style.marginRight) + rect.width) + 'px';
+    mask.style.height = (parseFloat(style.marginTop) + parseFloat(style.marginBottom) + rect.height) + 'px';
+
+    elem.parentNode.appendChild(mask);
+}
+
+var target = document.getElementById('target');
+addMask(target);
+
+target.addEventListener('click', function () {
+    console.log('click');
+}, false);
+</script>
 ```
 
 ### 请用代码写出(今天是星期x)其中x表示当天是星期几,如果当天是星期一,输出应该是"今天是星期一"
