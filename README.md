@@ -809,7 +809,9 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 3. 如果元素``position``为``fixed``。对于连续媒体，它的包含块为viewport；对于paged media，包含块为page area
 4. 如果元素``position``为``absolute``，它的包含块由祖先元素中最近一个``position``为``relative``,``absolute``或者``fixed``的元素产生，规则如下：
     - 如果祖先元素为行内元素，the containing block is the bounding box around the **padding boxes** of the first and the last inline boxes generated for that element.
-    - 其他情况下包含块由祖先节点的**padding edge**组成  
+    - 其他情况下包含块由祖先节点的**padding edge**组成
+
+如果找不到定位的祖先元素，包含块为**初始包含块**
 
 ### stacking context,布局规则  
 z轴上的默认层叠顺序如下（从下到上）：  
