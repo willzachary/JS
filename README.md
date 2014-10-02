@@ -1307,7 +1307,22 @@ var EventUtil = {
         } else if ('cancelBubble' in event) {
             event.cancelBubble = true;
         }
-    }
+    },
+    /**
+     * keypress事件跨浏览器获取输入字符
+     * 某些浏览器在一些特殊键上也触发keypress，此时返回null
+     **/
+     getChar: function (event) {
+        if (event.which == null) {
+            return String.fromCharCode(event.keyCode);  // IE
+        }
+        else if (event.which != 0 && event.charCode != 0) {
+            return String.fromCharCode(event.which);    // the rest
+        }
+        else {
+            return null;    // special key
+        }
+     }
 };
 ```
 
