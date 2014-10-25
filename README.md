@@ -655,6 +655,8 @@ html[xmlns*=""]:root #trece  { color: red  }
 - [line-height](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
 - [color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
 - [visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
+- [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
+
 
 
 ### IE6浏览器有哪些常见的bug,缺陷或者与标准不一致的地方,如何解决
